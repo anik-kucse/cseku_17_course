@@ -16,4 +16,11 @@ class Index extends MainController
         $this->load->view("home");
         $this->load->view("footer");
     }
+
+    public function syllabus(){
+        $data = ['pageName' => 'Syllabus'];
+        $this->load->view("header", $data);
+        $this->load->view("syllabus");
+        $this->load->view("footer");
+    }
 }
