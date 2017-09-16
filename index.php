@@ -3,6 +3,8 @@ spl_autoload_register(function ($class){
     include_once "system/libs/".$class.".php";
 });
 
+include "app/config/config.php";
+
 $url = isset($_GET['url']) ? $_GET['url'] : NULL;
 if($url != NULL) {
     $url = rtrim($url, '/');
