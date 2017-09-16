@@ -7,10 +7,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap CSS -->
-        <link href="<?php echo CSS_DIR ?>bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo CSS_DIR ?>/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
         <!--Customs css goes here-->
-        <link href="<?php echo CSS_DIR ?>main.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo CSS_DIR ?>/main.css" rel="stylesheet" type="text/css" />
 
         <!--Tab icon for the website-->
         <link rel="icon" href="">
@@ -58,10 +58,10 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo BASE_DIR ?>Index/registration"><b>Registration</b></a>
+                        <a class="nav-link" href="<?php echo BASE_DIR ?>/Index/registration"><b>Registration</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo BASE_DIR ?>Index/login"><b>Log in</b></a>
+                        <a class="nav-link" href="<?php echo BASE_DIR ?>/Index/login"><b>Log in</b></a>
                     </li>
                 </ul>
             </div>

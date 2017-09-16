@@ -1,6 +1,6 @@
 <div class="content">
 	<br>
-	<form class="form-horizontal" role="form" method="POST" action="#">
+	<form class="form-horizontal" role="form" method="POST" action="<?php echo BASE_URL?>/Login/loginAuth">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
@@ -13,7 +13,7 @@
             <div class="col-md-6">
                 <div class="input-group">
 				 	<span class="input-group-addon" id="basic-addon1">@</span>
-				 	<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+				 	<input type="text" class="form-control" name="username" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
 				</div>
             </div>
             <div class="col-md-3">
@@ -30,7 +30,7 @@
             <div class="col-md-6">
                 <div class="input-group">
 				 	<span class="input-group-addon" id="basic-addon1">**</span>
-				 	<input type="password" class="form-control" placeholder="Password" aria-label="password" aria-describedby="basic-addon1">
+				 	<input type="password" class="form-control" name="password" placeholder="Password" aria-label="password" aria-describedby="basic-addon1" required>
 				</div>
             </div>
             <div class="col-md-3">
@@ -45,7 +45,7 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-3">
-                <button type="submit" class="btn btn-outline-customs">Login</button>
+                <button type="submit" name="btn_login" class="btn btn-outline-customs">Login</button>
             </div>
             <div class="col-md-3">
             	<a href="#">Forgot Your Password?</a>

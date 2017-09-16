@@ -31,13 +31,6 @@ class Index extends MainController
         $this->load->view("footer");
     }
 
-    public function login(){
-        $data = ['pageName' => 'Log in'];
-        $this->load->view("header", $data);
-        $this->load->view("login");
-        $this->load->view("footer");
-    }
-
     public function courseRegistration(){
         $data = ['pageName' => 'Course Registation'];
         $this->load->view("header", $data);
