@@ -33,19 +33,19 @@
                         <a class="nav-link" href="<?php echo BASE_DIR ?>"><b>Home</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo BASE_DIR ?>Index/syllabus"><b>Syllabus</b></a>
+                        <a class="nav-link" href="<?php echo BASE_DIR ?>/Index/syllabus"><b>Syllabus</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo BASE_DIR ?>Index/result"><b>My Result</b></a>
+                        <a class="nav-link" href="<?php echo BASE_DIR ?>/Index/result"><b>My Result</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo BASE_DIR ?>Index/courseRegistration"><b>Course Registration</b></a>
+                        <a class="nav-link" href="<?php echo BASE_DIR ?>/Index/courseRegistration"><b>Course Registration</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo BASE_DIR ?>Index/newsyllabus"><b>add syllabus</b></a>
+                        <a class="nav-link" href="<?php echo BASE_DIR ?>/Index/newsyllabus"><b>add syllabus</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo BASE_DIR ?>Index/accountmanage"><b>Acccount</b></a>
+                        <a class="nav-link" href="<?php echo BASE_DIR ?>/Index/accountmanage"><b>Acccount</b></a>
                     </li>
                     <!-- <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>

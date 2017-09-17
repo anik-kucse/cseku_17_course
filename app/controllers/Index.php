@@ -10,6 +10,10 @@ class Index extends MainController
         parent::__construct();
     }
 
+    public function index(){
+        $this->home();
+    }
+
     public function home(){
         $data = ['pageName' => 'home'];
         $this->load->view("header", $data);

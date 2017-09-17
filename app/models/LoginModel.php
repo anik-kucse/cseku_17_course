@@ -9,6 +9,10 @@ class LoginModel extends MainModel
         parent::__construct();
     }
 
+    public function getIdByUserNamePass($username, $pass, $table){
+
+    }
+
     public function catList($table){
         $sql = "SELECT * FROM $table" ;
         return $this->db->select($sql);
