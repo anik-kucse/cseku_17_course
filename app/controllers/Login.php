@@ -25,6 +25,8 @@ class Login extends MainController
             $username = $_POST['username'];
             $password = $_POST['password'];
             echo "$username <br> $password";
+            $loginModel = $this->load->model("LoginModel");
+            
         }
     }
 }
