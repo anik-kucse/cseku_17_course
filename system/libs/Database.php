@@ -9,9 +9,10 @@ class Database extends PDO {
     public function select($sql, $data = array(), $fetchStyle = PDO::FETCH_ASSOC){
         $stmt = $this->prepare($sql);
         foreach ($data as $key => $value) {
-            $stmt->bindParam($key, $value);
+            $stmt->bindValue($key, $value);
         }
         $stmt->execute();
+        var_dump($stmt->fetchAll($fetchStyle));
         return $stmt->fetchAll($fetchStyle);
     }
 

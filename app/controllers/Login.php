@@ -23,9 +23,11 @@ class Login extends MainController
     public function loginAuth(){
         if (isset($_POST['btn_login'])) {
             $username = $_POST['username'];
-            $password = $_POST['password'];
+            $password = md5($_POST['password']);
+            $table = "user";
             echo "$username <br> $password";
             $loginModel = $this->load->model("LoginModel");
+            $loginData  = $loginModel->getIdByUserNamePass($username, $password, $table);
 
         }
     }

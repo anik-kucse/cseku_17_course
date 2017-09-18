@@ -10,7 +10,13 @@ class LoginModel extends MainModel
     }
 
     public function getIdByUserNamePass($username, $pass, $table){
-
+        $sql = "SELECT * FROM $table WHERE user_name = :user_name AND password = :password";
+        $data = array(
+            ":user_name" => $username,
+            ":password" => $pass
+        );
+        var_dump($this->db->select($sql, $data));
+        return $this->db->select($sql, $data);
     }
 
     public function catList($table){

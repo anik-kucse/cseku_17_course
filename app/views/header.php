@@ -61,7 +61,7 @@
                         <a class="nav-link" href="<?php echo BASE_DIR ?>/Index/registration"><b>Registration</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo BASE_DIR ?>/Index/login"><b>Log in</b></a>
+                        <a class="nav-link" href="<?php echo BASE_DIR ?>/Login/index"><b>Log in</b></a>
                     </li>
                 </ul>
             </div>
