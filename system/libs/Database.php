@@ -12,7 +12,6 @@ class Database extends PDO {
             $stmt->bindValue($key, $value);
         }
         $stmt->execute();
-        var_dump($stmt->fetchAll($fetchStyle));
         return $stmt->fetchAll($fetchStyle);
     }
 

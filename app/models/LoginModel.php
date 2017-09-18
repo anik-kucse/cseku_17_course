@@ -15,7 +15,6 @@ class LoginModel extends MainModel
             ":user_name" => $username,
             ":password" => $pass
         );
-        var_dump($this->db->select($sql, $data));
         return $this->db->select($sql, $data);
     }
 

@@ -25,9 +25,9 @@ class Login extends MainController
             $username = $_POST['username'];
             $password = md5($_POST['password']);
             $table = "user";
-            echo "$username <br> $password";
             $loginModel = $this->load->model("LoginModel");
             $loginData  = $loginModel->getIdByUserNamePass($username, $password, $table);
+            var_dump($loginData);
 
         }
     }
