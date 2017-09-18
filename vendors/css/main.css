@@ -1,6 +1,6 @@
 :root {
   --body-color: #bbcbca;
-  --header-color: #FECACA;
+  --header-color: #7AC2FD;
   --container-color: #fff;
 }
 /*
@@ -47,13 +47,13 @@ nav{
 }
 thead{
 	background: var(--header-color);
-	border-bottom: 3px solid #aaaabb;
+	/*border-bottom: 3px solid #aaaabb;*/
 }
-table,tr{
-	border: 2px solid #aaaabb;
+tr:last-child{
+	border-bottom: 1px solid #F2F2F2;
 }
 th{
-	background: #aabbaa;
+	background: #F1738B;
 }
 
 input[type="radio"]{

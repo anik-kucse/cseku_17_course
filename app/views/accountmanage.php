@@ -66,13 +66,11 @@
               <div class="modal-body">
                 <form>
                   <div class="input-group row col-12 col-md-12">
-                    <label class="col-4 col-md-4" >Current Email</label>
-                    <input type="text" class="form-control col-8 col-md-8"   required="1" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" placeholder="Current Email"  required="1" aria-describedby="basic-addon2">
                   </div>
                   <br><br>
                   <div class="input-group row col-12 col-md-12">
-                    <label class="col-4 col-md-4" >New Email</label>
-                    <input type="text" class="form-control col-8 col-md-8"   required="1" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" placeholder="New Email"   required="1" aria-describedby="basic-addon2">
                   </div>
                   <br><br>
                   <div class="input-group row col-12 col-md-12">
@@ -106,13 +104,11 @@
               <div class="modal-body">
                 <form>
                   <div class="input-group row col-12 col-md-12">
-                    <label class="col-4 col-md-4" >Current Mobile</label>
-                    <input type="text" class="form-control col-8 col-md-8"   required="1" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" placeholder="Current Mobile"   required="1" aria-describedby="basic-addon2">
                   </div>
                   <br><br>
                   <div class="input-group row col-12 col-md-12">
-                    <label class="col-4 col-md-4" >New Mobile</label>
-                    <input type="text" class="form-control col-8 col-md-8"   required="1" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" placeholder="New Mobile"  required="1" aria-describedby="basic-addon2">
                   </div>
                   <br><br>
                   <div class="input-group row col-12 col-md-12">
