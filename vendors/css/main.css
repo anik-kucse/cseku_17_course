@@ -1,7 +1,6 @@
 :root {
   --body-color: #bbcbca;
   --header-color: #7AC2FD;
-  --container-color: #fff;
 }
 /*
  * Style tweaks
@@ -37,7 +36,10 @@ nav{
 	color: #FFF !important;
 }
 .container{
-	background-color: var(--container-color);
+    background-image: url(../../img/pattern-2.png);
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: 50% 50%;
 }
 .content{
 	min-height: 84vh;
@@ -50,7 +52,7 @@ thead{
 	/*border-bottom: 3px solid #aaaabb;*/
 }
 tr:last-child{
-	border-bottom: 1px solid #F2F2F2;
+	border-bottom: 1px solid #DEDEDE;
 }
 th{
 	background: #F1738B;
@@ -65,35 +67,39 @@ input[type="radio"]{
 	border: none;
 }
 .card-dody {
-	background-color: var(--container-color);
+	/*background-color: var(--container-color);*/
+    background-image: url(../../img/pattern-2.png);
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: 50% 50%;
 	border: none;
 }
 
 .btn-outline-customs {
-    color: #AABBAA;
+    color: var(--header-color);
     background-color: transparent;
     background-image: none;
-    border-color: #AABBAA;
+    border-color: var(--header-color);
 }
 
 .btn-outline-customs:hover {
     color: #FFF;
-    background-color: #AABBAA;
+    background-color: var(--header-color);
     background-image: none;
-    border-color: #AABBAA;
+    border-color: var(--header-color);
 }
 
 .btn-outline-customs-float-right {
 	float: right;
-    color: #AABBAA;
+    color: var(--header-color);
     background-color: transparent;
     background-image: none;
-    border-color: #AABBAA;
+    border-color: var(--header-color);
 }
 
 .btn-outline-customs-float-right:hover {
     color: #FFF;
-    background-color: #AABBAA;
+    background-color: var(--header-color);
     background-image: none;
-    border-color: #AABBAA;
+    border-color: var(--header-color);
 }

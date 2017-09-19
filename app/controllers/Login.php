@@ -7,17 +7,23 @@ class Login extends MainController
 {
     public function __construct(){
         parent::__construct();
+
     }
 
-    public function index(){
+    public function Index(){
         $this->login();
     }
 
     public function login(){
-        $data = ['pageName' => 'Log in'];
-        $this->load->view("header", $data);
-        $this->load->view("login/login");
-        $this->load->view("footer");
+        Session::init();
+        if(Session::get("login") == true ){
+            header("Location: ".BASE_URL."/Index/accountManage");
+        } else {
+            $data = ['pageName' => 'Log in'];
+            $this->load->view("header", $data);
+            $this->load->view("login/login");
+            $this->load->view("footer");
+        }
     }
 
     public function loginAuth(){
@@ -27,8 +33,22 @@ class Login extends MainController
             $table = "user";
             $loginModel = $this->load->model("LoginModel");
             $loginData  = $loginModel->getIdByUserNamePass($username, $password, $table);
-            var_dump($loginData);
-
+            if(!empty($loginData)) {
+                Session::init();
+                Session::set('login', 'true');
+                Session::set('username', $loginData[0]['user_name']);
+                Session::set('id',  $loginData[0]['id']);
+                Session::set('user_role',  $loginData[0]['user_role']);
+                header("Location: ".BASE_URL."/Index/accountmanage");
+            }else{
+                header("Location: ".BASE_URL."/Login");
+            }
         }
+    }
+
+    public function logOut(){
+        Session::init();
+        Session::destroy();
+        header("Location: ".BASE_URL."/Login");
     }
 }

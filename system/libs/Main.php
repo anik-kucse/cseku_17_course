@@ -10,7 +10,7 @@ class Main
 {
     public $url;
     public $controllerName = "Index";
-    public $methodName = "index";
+    public $methodName = "Index";
     public $controllerPath = "app/controllers/";
     public $controller;
 

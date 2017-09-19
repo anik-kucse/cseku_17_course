@@ -48,7 +48,7 @@
                 <button type="submit" name="btn_login" class="btn btn-outline-customs">Login</button>
             </div>
             <div class="col-md-3">
-            	<a href="#">Forgot Your Password?</a>
+            	<p>New to this site. Register <a href="<?php echo BASE_URL?>/Register/Index">here!!</a></p>
             </div>
         </div>
     </form>
