@@ -7,11 +7,19 @@
 	</header>
 	<form role="form" method="POST" action="<?php echo BASE_URL?>/Register/registerNewMember">
         <div class="form-group row">
-            <label class="col-sm-2 text-danger "></label>
-            <label class="col-sm-10  text-danger ">Error Massage</label>
+            <?php
+            if(!empty($data[0])){
+                foreach ($data[0] as $key){
+            ?>
+                <label class="col-sm-2 text-danger "></label>
+                <label class="col-sm-10  text-danger "><?Php echo $key ?></label>
+            <?php
+                }
+            }
+            ?>
         </div>
 		<div class="form-group row">
-		    <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
+		    <label for="firstName" class="col-sm-2 col-form-label">First Name<span class="text-danger"> *</span></label>
 		    <div class="col-sm-10">
 		    	<input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstName" >
 		    </div>
@@ -67,29 +75,31 @@
 		<div class="form-group row">
 			<label class="col-sm-2 col-form-label">Year-Term</label>
 			<div class="col-sm-10">
-				<select class="form-control" id="singleselect">
-					<option>select Year-term</option>
-					<option>1st year I term</option>
-					<option>1st year I term</option>
-					<option>1st year I term</option>
-					<option>1st year I term</option>
+				<select class="form-control" name="ddlYearTerm" id="singleselect1">
+					<option value="0">select Year-term</option>
+                    <?php
+                    foreach ($data[1] as $key => $value){
+                    ?>
+					<option value="<?php echo $value['id']?>"><?php echo $value['year']." year ".$value['term']." term" ?></option>
+                        <?php
+                    }
+                    ?>
 				</select>
 			</div>
 		</div>
 		<div class="form-group row">
 			<label class="col-sm-2 col-form-label">Session</label>
 			<div class="col-sm-10">
-				<select class="form-control" id="singleselect">
-					<option>select Session</option>
-					<option>2014-15</option>
-					<option>2014-15</option>
-					<option>2014-15</option>
-					<option>2014-15</option>
-					<option>2014-15</option>
-					<option>2014-15</option>
-					<option>2014-15</option>
-					<option>2014-15</option>
-				</select>
+                <select class="form-control" name="ddlSession" id="singleselect2">
+                    <option value="0">select Year-term</option>
+                    <?php
+                    foreach ($data[2] as $key => $value){
+                        ?>
+                        <option value="<?php echo $value['id']?>"><?php echo $value['sessionNumber'] ?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
 			</div>
 		</div>
 		<div>

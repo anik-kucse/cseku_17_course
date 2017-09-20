@@ -17,14 +17,22 @@ class Register extends MainController
         self::register();
     }
 
-    public function register(){
+    public function register($error = false){
         Session::init();
         if(Session::get("login") == true ){
             header("Location: ".BASE_URL."/Index/accountManage");
         } else {
             $data = ['pageName' => 'Register New Member'];
             $this->load->view("header", $data);
-            $this->load->view("registration");
+            $loadDropDown = $this->load->model("LoadDropDown");
+            $yearTerm = $loadDropDown->getAllYearTerm();
+            $session = $loadDropDown->getAllSession();
+
+            array_push($data, $error);
+            array_push($data, $yearTerm);
+            array_push($data, $session);
+
+            $this->load->view("registration",$data);
             $this->load->view("footer");
         }
     }
@@ -39,27 +47,35 @@ class Register extends MainController
         $email = $_POST['email'];
         $password = $_POST['password'];
         $confirmPassword = $_POST['confirmPassword'];
+        $ddlYearTerm = $_POST['ddlYearTerm'];
+        $ddlSession = $_POST['ddlSession'];
 
         $error = [];
 
         if(empty($firstName)){
-            var_dump(1);
             array_push($error,"First Name Required");
         }
         if(empty($studentId)){
-            array_push($error,"Student ID Name Required");
+            array_push($error,"Student ID Required");
         }
         if(empty($userName)){
-            array_push($error,"Username ID Name Required");
+            array_push($error,"Username Required");
         }
         if(empty($password)){
-            array_push($error,"Password ID Name Required");
+            array_push($error,"Password Required");
         }
         if(empty($confirmPassword)){
             array_push($error,"Password confirmation Required");
         }
-
-        var_dump($error);
+        if($ddlYearTerm == '0'){
+            array_push($error, "Please select year-term");
+        }
+        if($ddlSession == '0'){
+            array_push($error, "Please select session");
+        }
+        if(!empty($error)){
+            self::register($error);
+        }
 
 
         var_dump($firstName);
@@ -71,6 +87,8 @@ class Register extends MainController
         var_dump($email);
         var_dump($password);
         var_dump($confirmPassword);
+        var_dump($ddlYearTerm);
+        var_dump($ddlSession);
 
     }
 }

@@ -8,9 +8,11 @@ class Load
 
     public function view($fileName, $data = false)
     {
+
         if($data == true){
             extract($data);
         }
+//        var_dump($data);
         include 'app/views/'.$fileName.'.php';
     }
 
