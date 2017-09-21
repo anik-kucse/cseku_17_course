@@ -37,7 +37,7 @@
 		    </div>
 		</div>
 		<div class="form-group row">
-		    <label for="studentId" class="col-sm-2 col-form-label">Student ID</label>
+		    <label for="studentId" class="col-sm-2 col-form-label">Student ID<span class="text-danger"> *</span></label>
 		    <div class="col-sm-10">
 		    	<input type="text" class="form-control" id="studentId" placeholder="Student ID" name="studentId">
 		    </div>
@@ -49,7 +49,7 @@
 		    </div>
 		</div>
 		<div class="form-group row">
-		    <label for="username" class="col-sm-2 col-form-label">Usermame</label>
+		    <label for="username" class="col-sm-2 col-form-label">Usermame<span class="text-danger"> *</span></label>
 		    <div class="col-sm-10">
 		    	<input type="text" class="form-control" id="username" placeholder="Username" name="userName">
 		    </div>
@@ -61,19 +61,19 @@
 		    </div>
 		</div>
 		<div class="form-group row">
-		    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+		    <label for="inputPassword" class="col-sm-2 col-form-label">Password<span class="text-danger"> *</span></label>
 		    <div class="col-sm-10">
 		    	<input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
 		    </div>
 		</div>
 		<div class="form-group row">
-		    <label for="confirmPassword" class="col-sm-2 col-form-label">Confirm Password</label>
+		    <label for="confirmPassword" class="col-sm-2 col-form-label">Confirm Password<span class="text-danger"> *</span></label>
 		    <div class="col-sm-10">
 		    	<input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" name="confirmPassword">
 		    </div>
 		</div>
 		<div class="form-group row">
-			<label class="col-sm-2 col-form-label">Year-Term</label>
+			<label class="col-sm-2 col-form-label">Year-Term<span class="text-danger"> *</span></label>
 			<div class="col-sm-10">
 				<select class="form-control" name="ddlYearTerm" id="singleselect1">
 					<option value="0">select Year-term</option>
@@ -88,10 +88,10 @@
 			</div>
 		</div>
 		<div class="form-group row">
-			<label class="col-sm-2 col-form-label">Session</label>
+			<label class="col-sm-2 col-form-label">Session<span class="text-danger"> *</span></label>
 			<div class="col-sm-10">
                 <select class="form-control" name="ddlSession" id="singleselect2">
-                    <option value="0">select Year-term</option>
+                    <option value="0">select Session</option>
                     <?php
                     foreach ($data[2] as $key => $value){
                         ?>

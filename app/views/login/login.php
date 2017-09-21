@@ -4,6 +4,16 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
+                <span class="text-success"><?php
+                    if(isset($success)){
+                        echo $success;
+                    }
+                    ?></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
                 <h2>Please Login</h2>
                 <hr>
             </div>

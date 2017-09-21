@@ -60,6 +60,12 @@ class Register extends MainController
         }
         if(empty($userName)){
             array_push($error,"Username Required");
+        }else{
+            $userModel = $this->load->model('UserModel');
+            $id = $userModel->getUserByUserName($userName);
+            if(!empty($id)){
+                array_push($error, "Username already exist. please select another one");
+            }
         }
         if(empty($password)){
             array_push($error,"Password Required");
@@ -73,22 +79,53 @@ class Register extends MainController
         if($ddlSession == '0'){
             array_push($error, "Please select session");
         }
+        if($password != $confirmPassword){
+            array_push($error, "Password miss matched");
+        }
         if(!empty($error)){
             self::register($error);
         }
+        else{
+            $data = array(
+                'user_name' => $userName,
+                'password' => md5($password),
+                'user_role' => 'Student'
+            );
+            $lastId = $userModel->insertIntoUser($data);
+            if($lastId != false){
+                unset($data);
+                $data = array(
+                    'user_id' => $lastId,
+                    'first_name' => $firstName,
+                    'middle_name' => $middleName,
+                    'last_name' => $lastName,
+                    'student_id' => $studentId,
+                    'email' => $email,
+                    'mobile' => $mobile,
+                    'year_term_id' => $ddlYearTerm,
+                    'session_id' => $ddlSession
+                );
+                $msg = $userModel->insertIntoStudent($data);
+                if($msg != false){
 
 
-        var_dump($firstName);
-        var_dump($middleName);
-        var_dump($lastName);
-        var_dump($studentId);
-        var_dump($mobile);
-        var_dump($userName);
-        var_dump($email);
-        var_dump($password);
-        var_dump($confirmPassword);
-        var_dump($ddlYearTerm);
-        var_dump($ddlSession);
+                    $data = ['pageName' => 'Log in'];
+                    $this->load->view("header", $data);
+                    $success_msg = ['success' => 'Registration Successful. Now you can log in'];
+                    $this->load->view("login/login", $success_msg);
+                    $this->load->view("footer");
 
+                    header("Location: ".BASE_URL."/Login/login/".$success_msg);
+                } else{
+                    array_push($error, "Something went wrong. please try again later");
+                    self::register($error);
+                }
+            } else{
+
+                array_push($error, "Something went wrong. please try again later");
+                self::register($error);
+            }
+
+        }
     }
 }

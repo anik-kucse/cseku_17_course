@@ -14,14 +14,14 @@ class Login extends MainController
         $this->login();
     }
 
-    public function login(){
+    public function login($data = false){
         Session::init();
         if(Session::get("login") == true ){
             header("Location: ".BASE_URL."/Index/accountManage");
         } else {
             $data = ['pageName' => 'Log in'];
             $this->load->view("header", $data);
-            $this->load->view("login/login");
+            $this->load->view("login/login", $data);
             $this->load->view("footer");
         }
     }
