@@ -4,6 +4,16 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
+                <span class="text-success"><?php
+                    if(isset($success)){
+                        echo $success;
+                    }
+                    ?></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
                 <h2>Please Login</h2>
                 <hr>
             </div>
@@ -48,7 +58,7 @@
                 <button type="submit" name="btn_login" class="btn btn-outline-customs">Login</button>
             </div>
             <div class="col-md-3">
-            	<a href="#">Forgot Your Password?</a>
+            	<p>New to this site. Register <a href="<?php echo BASE_URL?>/Register/Index">here!!</a></p>
             </div>
         </div>
     </form>

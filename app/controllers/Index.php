@@ -8,6 +8,11 @@ class Index extends MainController
 
     public function __construct(){
         parent::__construct();
+//        Session::checkSession();
+    }
+
+    public function Index(){
+        $this->home();
     }
 
     public function home(){
@@ -42,13 +47,6 @@ class Index extends MainController
         $data = ['pageName' => 'Add new Syllabus'];
         $this->load->view("header", $data);
         $this->load->view("newsyllabus");
-        $this->load->view("footer");
-    }
-
-    public function registration(){
-        $data = ['pageName' => 'Registration'];
-        $this->load->view("header", $data);
-        $this->load->view("registration");
         $this->load->view("footer");
     }
 

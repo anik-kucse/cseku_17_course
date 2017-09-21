@@ -9,13 +9,13 @@ class Database extends PDO {
     public function select($sql, $data = array(), $fetchStyle = PDO::FETCH_ASSOC){
         $stmt = $this->prepare($sql);
         foreach ($data as $key => $value) {
-            $stmt->bindParam($key, $value);
+            $stmt->bindValue($key, $value);
         }
         $stmt->execute();
         return $stmt->fetchAll($fetchStyle);
     }
 
-    public function insert($table, $data){
+    public function insert($table, $data , $lastIdNeed = false){
         $columnName = implode(",", array_keys($data));
         $values = ":".implode(", :", array_keys($data));
 
@@ -23,9 +23,14 @@ class Database extends PDO {
         $stmt = $this->prepare($sql);
 
         foreach ($data as $key => $value) {
-            $stmt->bindParam(":$key", $value);
+            $stmt->bindValue(":$key", $value);
         }
-        return $stmt->execute();
+        $msg = $stmt->execute();
+        if($msg && $lastIdNeed){
+            return $last_id = $this->lastInsertId();
+        }else{
+            return $msg;
+        }
     }
 
     public function update($table, $data, $cond){
