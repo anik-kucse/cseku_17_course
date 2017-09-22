@@ -5,41 +5,32 @@
     </header>
     <form>
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Year</label>
+            <label class="col-sm-2 col-form-label">Year - Term</label>
             <div class="col-sm-10">
                 <select class="form-control" id="singleselect">
-                    <option>select Year</option>
-                    <option>1st year</option>
-                    <option>2nd year</option>
-                    <option>3rd year</option>
-                    <option>4th year</option>
+                    <?php
+                    foreach ($data[0] as $key => $value){
+                        ?>
+                        <option value="<?php echo $value['id']?>"><?php echo $value['year']." year ".$value['term']." term" ?></option>
+                        <?php
+                    }
+                    ?>
                 </select>
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Term</label>
+            <label class="col-sm-2 col-form-label">Syllabus</label>
             <div class="col-sm-10">
                 <select class="form-control" id="singleselect">
-                    <option>select Term</option>
-                    <option>I</option>
-                    <option>II</option>
+                    <?php
+                    foreach ($data[1] as $key => $value){
+                        ?>
+                        <option value="<?php echo $value['id']?>"><?php echo $value['syllabus_Name'] ?></option>
+                        <?php
+                    }
+                    ?>
                 </select>
             </div>
-        </div>
-       
-        <div class="form-check row ">
-            <label class="col-sm-2 col-form-label"></label>
-            <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                Previous Version Syllabus
-            </label>
-        </div>
-        <div class="form-check row ">
-            <label class="col-sm-2 col-form-label"></label>
-            <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option2" >
-                New Syllabus
-            </label>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label"></label>

@@ -79,8 +79,8 @@
 					<option value="0">select Year-term</option>
                     <?php
                     foreach ($data[1] as $key => $value){
-                    ?>
-					<option value="<?php echo $value['id']?>"><?php echo $value['year']." year ".$value['term']." term" ?></option>
+                        ?>
+                        <option value="<?php echo $value['id']?>"><?php echo $value['year']." year ".$value['term']." term" ?></option>
                         <?php
                     }
                     ?>
