@@ -1,18 +1,6 @@
 <div class="content">
     <br>
-<!--    <ul class="nav nav-tabs">-->
-<!--        <li class="nav-item">-->
-<!--            <a class="nav-link active" href="--><?php //echo BASE_URL?><!--/Syllabus">Current</a>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--            <a class="nav-link" href="--><?php //echo BASE_URL?><!--/Syllabus/syllabusUpdate">Update</a>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--            <a class="nav-link" href="--><?php //echo BASE_URL?><!--/Syllabus/syllabusCreate">Create New</a>-->
-<!--        </li>-->
-<!--    </ul>-->
-<!--    <br>-->
-    <form method="POST" action="<?php echo BASE_URL?>/Syllabus/searchPublic">
+    <form method="POST" action="<?php echo BASE_URL?>/SyllabusPublic/search">
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Year - Term</label>
             <div class="col-sm-10">
