@@ -35,6 +35,16 @@ nav{
 	border-bottom-color: #FFF;
 	color: #FFF !important;
 }
+.nav-tabs .nav-link.active{
+    color: #7AC2FD !important;
+    background-color: transparent !important;
+    border-color: #ddd #ddd #ddd;
+}
+.nav-tabs .nav-link:hover{
+    background-color: transparent !important;
+    color: #7AC2FD !important;
+    border-color: #7AC2FD #7AC2FD #ddd;
+}
 .container{
     background-image: url(../../img/pattern-2.png);
     background-repeat: repeat;
@@ -55,7 +65,7 @@ tr:last-child{
 	border-bottom: 1px solid #DEDEDE;
 }
 th{
-	background: #F1738B;
+	background: #4a9aff;
 }
 
 input[type="radio"]{
