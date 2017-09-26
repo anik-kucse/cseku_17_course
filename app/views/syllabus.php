@@ -37,29 +37,37 @@
         </div>
     </form>
     <br>
-    <table class="table table-striped ">
-        <thead>
-        <tr>
-            <th>Course No</th>
-            <th>Course Title</th>
-            <th>Credit</th>
-            <th>Type</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php
-        foreach ($data[2] as $key => $value){
+    <?php
+    for($i = 2; $i < 5; $i++){
+        if(!empty($data[$i])){
             ?>
-            <tr>
-                <td><?php echo $value['courseNumber']?></td>
-                <td><?php echo $value['courseTitle']?></td>
-                <td><?php echo $value['credit']?></td>
-                <td><?php echo $value['subject_type']?></td>
-            </tr>
+            <span><b><?php echo $data[$i][0]['group_rule']?></b></span>
+            <table class="table table-striped ">
+                <thead>
+                <tr>
+                    <th>Course No</th>
+                    <th>Course Title</th>
+                    <th>Credit</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                foreach ($data[$i] as $key => $value){
+                    ?>
+                    <tr>
+                        <td><?php echo $value['courseNumber']?></td>
+                        <td><?php echo $value['courseTitle']?></td>
+                        <td><?php echo $value['credit']?></td>
+                    </tr>
+                    <?php
+                }
+                ?>
+                </tbody>
+            </table>
+            <br>
             <?php
         }
-        ?>
-        </tbody>
-    </table>
+    }
+    ?>
     <br>
 </div>

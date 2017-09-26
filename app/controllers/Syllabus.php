@@ -50,20 +50,6 @@ class Syllabus extends MainController{
         $this->load->view("footer");
     }
 
-    public function syllabusCreate(){
-
-        $data = ['pageName' => 'Syllabus'];
-        $this->load->view("header", $data);
-        $syllabusModel = $this->load->model('SyllabusModel');
-        $loadDropDown = $this->load->model('LoadDropDown');
-        $term = $loadDropDown->getAllYearTerm();
-        $syllabusName = $syllabusModel->ddlSyllabusName();
-        array_push($data, $term);
-        array_push($data, $syllabusName);
-        $this->load->view("syllabus/syllabus_create", $data);
-        $this->load->view("footer");
-    }
-
     public function search(){
         $yearTerm = $_POST['ddlYearTerm'];
         $syllabus = $_POST['ddlSyllabusName'];

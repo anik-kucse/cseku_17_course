@@ -7,9 +7,6 @@
         <li class="nav-item">
             <a class="nav-link active" href="<?php echo BASE_URL?>/Syllabus/syllabusUpdate">Update</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="<?php echo BASE_URL?>/Syllabus/syllabusCreate">Create New</a>
-        </li>
     </ul>
     <br>
     <form>

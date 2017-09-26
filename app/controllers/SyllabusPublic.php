@@ -24,12 +24,17 @@ class SyllabusPublic extends MainController {
 
         $term = $loadDropDown->getAllYearTerm();
         $syllabusName = $syllabusModel->ddlSyllabusName();
-        $tableData = $syllabusModel->getSubjectByTermName(1 , 1);
 
         array_push($data, $term);
         array_push($data, $syllabusName);
-        array_push($data, $tableData);
 
+        $subjectType = $syllabusModel->checkSubjectType(1, 1);
+        $numberOfSubjectType = count($subjectType);
+
+        for ($i = 0; $i < $numberOfSubjectType; $i++ ){
+            $tableData = $syllabusModel->getSubjectByTermNameGroup(1, 1, $subjectType[$i]['subject_group_id']);
+            array_push($data, $tableData);
+        }
         $this->load->view("syllabus", $data);
         $this->load->view("footer");
     }
@@ -45,12 +50,17 @@ class SyllabusPublic extends MainController {
 
         $term = $loadDropDown->getAllYearTerm();
         $syllabusName = $syllabusModel->ddlSyllabusName();
-        $tableData = $syllabusModel->getSubjectByTermName($yearTerm, $syllabus);
 
         array_push($data, $term);
         array_push($data, $syllabusName);
-        array_push($data, $tableData);
 
+        $subjectType = $syllabusModel->checkSubjectType($yearTerm, $syllabus);
+        $numberOfSubjectType = count($subjectType);
+
+        for ($i = 0; $i < $numberOfSubjectType; $i++ ){
+            $tableData = $syllabusModel->getSubjectByTermNameGroup($yearTerm, $syllabus, $subjectType[$i]['subject_group_id']);
+            array_push($data, $tableData);
+        }
         $this->load->view("syllabus", $data);
         $this->load->view("footer");
 

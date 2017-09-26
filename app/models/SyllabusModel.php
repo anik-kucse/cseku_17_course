@@ -16,21 +16,39 @@ class SyllabusModel extends MainModel{
         return $this->db->select($sql);
     }
 
-    public function getSubjectByTermName($term_Year_Id, $syllabus_Name_Id)
+    public function getSubjectByTermNameGroup($term_Year_Id, $syllabus_Name_Id, $subject_group_id)
     {
-        $sql = "SELECT 	course.courseNumber, course.courseTitle, course.credit, syllabus.subject_type 
-                FROM syllabus 
-			    INNER JOIN course 
-        	    ON syllabus.course_Id = course.id
-		        WHERE syllabus.term_Year_Id = :term_Year_Id
-		        AND syllabus.syllabus_Name_Id = :syllabus_Name_Id";
+        $sql = "SELECT course.courseNumber, 
+                course.courseTitle, course.credit, subject_group.group_rule
+                FROM syllabus
+                INNER JOIN course ON course.id = syllabus.course_Id
+                INNER JOIN subject_group ON subject_group.id = syllabus.subject_group_id
+                WHERE syllabus.syllabus_Name_Id = :syllabus_Name_Id
+                AND syllabus.term_Year_Id = :term_Year_Id
+                AND syllabus.subject_group_id = :subject_group_id";
+        $data = array(
+            ':syllabus_Name_Id' => $syllabus_Name_Id,
+            ':term_Year_Id' => $term_Year_Id,
+            ':subject_group_id' => $subject_group_id
+        );
+
+        return $this->db->select($sql,$data);
+
+
+    }
+
+    public function checkSubjectType($term_Year_Id, $syllabus_Name_Id){
+        $sql = "SELECT subject_group_id FROM syllabus 
+                Where syllabus.term_Year_Id = :term_Year_Id
+                AND syllabus.syllabus_Name_Id = :syllabus_Name_Id
+                GROUP BY syllabus.subject_group_id ";
+
         $data = array(
             ':term_Year_Id' => $term_Year_Id,
             ':syllabus_Name_Id' => $syllabus_Name_Id
         );
 
-        return $this->db->select($sql,$data);
-
+        return $this->db->select($sql, $data);
 
     }
 
