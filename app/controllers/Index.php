@@ -45,11 +45,4 @@ class Index extends MainController
         $this->load->view("footer");
     }
 
-    public function accountmanage(){
-        $data = ['pageName' => 'Account Manage'];
-        $this->load->view("header", $data);
-        $this->load->view("accountmanage");
-        $this->load->view("footer");
-    }
-
 }

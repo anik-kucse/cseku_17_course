@@ -26,4 +26,14 @@ class UserModel extends MainModel{
     public function insertIntoStudent($data){
         return $this->db->insert('student', $data);
     }
+
+    public function getUserName()
+    {
+        return Session::get('username');
+    }
+
+    public function getUserRole()
+    {
+        return Session::get('user_role');
+    }
 }

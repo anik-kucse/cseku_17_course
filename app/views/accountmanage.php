@@ -7,49 +7,49 @@
     <div class="form-group row">
       <label for="inputPassword" class="col-sm-4 col-form-label">User Name</label>
       <div class="col-sm-7">
-        <label class="form-control" id="inputPassword" >rCr_BD</label>
+        <label class="form-control" id="inputPassword" ><?php echo $data[0]['user_name'];?></label>
       </div>
     </div>
     <div class="form-group row">
       <label for="inputPassword" class="col-sm-4 col-form-label">First Name</label>
       <div class="col-sm-7">
-        <label class="form-control" id="inputPassword" >J.M.</label>
+        <label class="form-control" id="inputPassword" ><?php echo $data[0]['first_name'];?></label>
       </div>
     </div>
     <div class="form-group row">
       <label for="inputPassword" class="col-sm-4 col-form-label">Middle Name</label>
       <div class="col-sm-7">
-        <label class="form-control" id="inputPassword" >Ashfiqur</label>
+        <label class="form-control" id="inputPassword" ><?php echo $data[0]['middle_name'];?></label>
       </div>
     </div>
     <div class="form-group row">
       <label for="inputPassword" class="col-sm-4 col-form-label">Last Name</label>
       <div class="col-sm-7">
-        <label class="form-control" id="inputPassword" >Rahman</label>
+        <label class="form-control" id="inputPassword" ><?php echo $data[0]['last_name'];?></label>
       </div>
     </div>
     <div class="form-group row">
       <label for="inputPassword" class="col-sm-4 col-form-label">Student ID</label>
       <div class="col-sm-7">
-        <label class="form-control" id="inputPassword" >150231</label>
+        <label class="form-control" id="inputPassword" ><?php echo $data[0]['student_id'];?></label>
       </div>
     </div>
     <div class="form-group row">
       <label for="inputPassword" class="col-sm-4 col-form-label">Year</label>
       <div class="col-sm-7">
-        <label class="form-control" id="inputPassword" >3rd year</label>
+        <label class="form-control" id="inputPassword" ><?php echo $data[0]['year'];?></label>
       </div>
     </div>
     <div class="form-group row">
       <label for="inputPassword" class="col-sm-4 col-form-label">Term</label>
       <div class="col-sm-7">
-        <label class="form-control" id="inputPassword" >II</label>
+        <label class="form-control" id="inputPassword" ><?php echo $data[0]['term'];?></label>
       </div>
     </div>
     <div class="form-group row">
       <label for="inputPassword" class="col-sm-4 col-form-label">Email</label>
       <div class="col-sm-6">
-        <label class="form-control" id="inputPassword" >anikpro.exe@gmail.com</label>
+        <label class="form-control" id="inputPassword" ><?php echo $data[0]['email'];?></label>
       </div>
       <div class="col-sm-1">
         <label class="form-text" ><a class="button" data-toggle="modal" href="#changeEmail">Edit!!</a></label>
@@ -87,7 +87,7 @@
     <div class="form-group row">
       <label for="inputPassword" class="col-sm-4 col-form-label">Mobile</label>
       <div class="col-sm-6">
-        <label class="form-control" id="inputPassword" >01314307248</label>
+        <label class="form-control" id="inputPassword" ><?php echo $data[0]['mobile'];?></label>
       </div>
       <div class="col-sm-1">
         <label class="form-text" ><a class="button" data-toggle="modal" href="#changeMobile">Edit!!</a></label>

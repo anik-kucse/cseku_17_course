@@ -89,7 +89,7 @@
                                 <a class="nav-link" href="<?php echo BASE_DIR ?>/Index/courseRegistration"><b>Course Registration</b></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo BASE_DIR ?>/Index/accountmanage"><b>Acccount</b></a>
+                                <a class="nav-link" href="<?php echo BASE_DIR ?>/AccountManage"><b>Acccount</b></a>
                             </li>
                         </ul>
                         <ul class="navbar-nav">
