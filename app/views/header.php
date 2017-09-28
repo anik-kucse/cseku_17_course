@@ -9,6 +9,9 @@
         <!-- Bootstrap CSS -->
         <link href="<?php echo CSS_DIR ?>/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
+        <!-- Latest compiled and minified CSS -->
+        <link href="<?php echo CSS_DIR ?>/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+
         <!--Customs css goes here-->
         <link href="<?php echo CSS_DIR ?>/main.css" rel="stylesheet" type="text/css" />
 
@@ -86,7 +89,7 @@
                                 <a class="nav-link" href="<?php echo BASE_DIR ?>/Index/result"><b>My Result</b></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo BASE_DIR ?>/Index/courseRegistration"><b>Course Registration</b></a>
+                                <a class="nav-link" href="<?php echo BASE_DIR ?>/CourseRegistration"><b>Course Registration</b></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo BASE_DIR ?>/AccountManage"><b>Acccount</b></a>
