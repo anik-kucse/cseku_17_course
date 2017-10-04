@@ -27,6 +27,18 @@ class UserModel extends MainModel{
         return $this->db->insert('student', $data);
     }
 
+    public function UpdatePassword($data){
+        $id = self::getUserId();
+        $cond = "id = $id";
+        $table = 'user';
+        if($this->db->update($table, $data, $cond)){
+            Session::set("password", $data['password']);
+            return true;
+        }else {
+            return false;
+        }
+    }
+
     public function getUserName()
     {
         return Session::get('username');
@@ -35,5 +47,15 @@ class UserModel extends MainModel{
     public function getUserRole()
     {
         return Session::get('user_role');
+    }
+
+    public function getUserId()
+    {
+        return Session::get('id');
+    }
+
+    public function getPassword()
+    {
+        return Session::get('password');
     }
 }

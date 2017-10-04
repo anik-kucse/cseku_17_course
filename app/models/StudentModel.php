@@ -12,7 +12,7 @@ class StudentModel extends MainModel{
     }
 
     public function GetStudentDetailByUserName($userName){
-    	$sql = "SELECT user.user_name,student.first_name, student.middle_name, 
+    	$sql = "SELECT user.user_name,student.first_name, student.middle_name,
     	student.last_name, student.student_id, student.email, student.mobile,
 		year_term.year, year_term.term, session.sessionNumber
 		FROM student
@@ -25,5 +25,12 @@ class StudentModel extends MainModel{
 			 );
 
 		return $this->db->select($sql, $data);
+    }
+
+    public function updateStudent($data){
+        $id = Session::get('id');
+        $cond = "user_id = $id";
+        $table = 'student';
+        return $this->db->update($table, $data, $cond);
     }
 }
