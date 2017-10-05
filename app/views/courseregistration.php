@@ -19,7 +19,7 @@
                     ?>
 				</select>
 		    </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-5">
                 <label class="form-control-label">Syllabus</label>
                 <select class="form-control" name="ddlSyllabus">
                     <?php
@@ -33,12 +33,11 @@
                     ?>
                 </select>
             </div>
-		</div>
-        <div class="form-group" >
-            <div class="">
-                <button type="submit" class="btn btn-outline-customs ">Select</button>
+            <div class="form-group col-md-1">
+                <label class="form-control-label" style="visibility:hidden">Invisible</label>
+            	<button type="submit" class="btn btn-outline-customs">Select</button>
             </div>
-        </div>
+		</div>
 	</form>
 	<!-- <div class="row">
 		<div class="col-md-12">

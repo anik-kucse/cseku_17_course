@@ -3,28 +3,32 @@
 		<center><h1>My Courses</h1></center>
 		<br>
 	</header>
-	<form method="post" action="<?php echo BASE_URL?>/MyCourses/myCourses">
-	    <div class="form-group col-md-2">
-	      	<label class="form-control-label">Year-Term</label>
-	      	<select class="form-control" name="ddlYearTerm">
-                <?php
-                foreach ($data[0] as $key => $value){
-                    ?>
-                    <!-- <?php if($value['id'] == $data['term']){echo 'selected = "selected"';}?> -->
-				    <option value="<?php echo $value['id']?>" <?php if($value['id'] == $data['term']){echo 'selected = "selected"';}?>>
-						<?php echo $value['year']." year ".$value['term']." term"?>
-					</option>
+    <form method="post" action="<?php echo BASE_URL?>/MyCourses/myCourses">
+        <div class="form-row">
+            <div class="col-md-2">
+                <label class="form-control-label">Year-Term</label>
+            </div>
+            <div class="form-group col-md-9">
+                <select class="form-control" name="ddlYearTerm">
                     <?php
-                }
-                ?>
-			</select>
-	    </div>
-        <div class="form-group col-md-2" >
-            <div class="">
-                <button type="submit" class="btn btn-outline-customs ">Select</button>
+                    foreach ($data[0] as $key => $value){
+                        ?>
+                        <!-- <?php if($value['id'] == $data['term']){echo 'selected = "selected"';}?> -->
+                        <option value="<?php echo $value['id']?>" <?php if($value['id'] == $data['term']){echo 'selected = "selected"';}?>>
+                            <?php echo $value['year']." year ".$value['term']." term"?>
+                        </option>
+                        <?php
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="form-group col-md-1" >
+                <div class="">
+                    <button type="submit" class="btn btn-outline-customs ">Select</button>
+                </div>
             </div>
         </div>
-	</form>
+    </form>
 	<!-- <div class="row">
 		<div class="col-md-12">
 			<center><h2><b>Retake List</b></h2></center>
