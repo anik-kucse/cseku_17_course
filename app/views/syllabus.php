@@ -8,7 +8,8 @@
                     <?php
                     foreach ($data[0] as $key => $value){
                         ?>
-                        <option value="<?php echo $value['id']?>" <?php
+                        <option value="<?php echo $value['id']?>"
+                        <?php
                         if (array_key_exists('term', $data)) {
                             if($value['id'] == $data['term']){
                                 echo 'selected = "selected"';
@@ -30,7 +31,17 @@
                     <?php
                     foreach ($data[1] as $key => $value){
                         ?>
-                        <option value="<?php echo $value['id']?>"><?php echo $value['syllabus_Name'] ?></option>
+                        <option value="<?php echo $value['id']?>"
+                            <?php
+                            if (array_key_exists('syllabusName', $data)) {
+                                if($value['id'] == $data['syllabusName']){
+                                    echo 'selected = "selected"';
+                                }
+                            }
+                            ?>
+                        >
+                            <?php echo $value['syllabus_Name'] ?>
+                        </option>
                         <?php
                     }
                     ?>

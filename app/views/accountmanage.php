@@ -46,6 +46,12 @@
         </div>
     </div>
     <div class="form-group row">
+        <label for="inputPassword" class="col-sm-4 col-form-label">Session</label>
+        <div class="col-sm-7">
+            <label class="form-control" id="inputPassword" ><?php echo $data[0]['sessionNumber'];?></label>
+        </div>
+    </div>
+    <div class="form-group row">
         <label for="inputPassword" class="col-sm-4 col-form-label">Year - Term</label>
         <div class="col-sm-6">
             <label class="form-control" id="inputPassword" ><?php echo $data[0]['year']." - ".$data[0]['term'];?></label>
@@ -57,7 +63,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Change Email Address</h5>
+                            <h5 class="modal-title">Change Year-Term</h5>
                             <button type="button" class="btn btn-outline-customs" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
