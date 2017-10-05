@@ -21,14 +21,4 @@ class Index extends MainController
         $this->load->view("home");
         $this->load->view("footer");
     }
-
-
-
-    public function result(){
-        $data = ['pageName' => 'Result'];
-        $this->load->view("header", $data);
-        $this->load->view("result");
-        $this->load->view("footer");
-    }
-
 }
