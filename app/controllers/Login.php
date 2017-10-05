@@ -39,6 +39,7 @@ class Login extends MainController
                 Session::set('username', $loginData[0]['user_name']);
                 Session::set('id',  $loginData[0]['id']);
                 Session::set('user_role',  $loginData[0]['user_role']);
+                Session::set('password',  $loginData[0]['password']);
                 header("Location: ".BASE_URL."/Index/accountmanage");
             }else{
                 header("Location: ".BASE_URL."/Login");
