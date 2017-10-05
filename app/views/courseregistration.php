@@ -11,7 +11,9 @@
                     <?php
                     foreach ($data[0] as $key => $value){
                         ?>
-					    <option value="<?php echo $value['id']?>"><?php echo $value['year']." year ".$value['term']." term"?></option>
+					    <option value="<?php echo $value['id']?>" <?php if($value['id'] == $data['term']){echo 'selected = "selected"';}?>>
+							<?php echo $value['year']." year ".$value['term']." term"?>
+						</option>
                         <?php
                     }
                     ?>
@@ -23,7 +25,9 @@
                     <?php
                     foreach ($data[1] as $key => $value){
                         ?>
-                        <option value="<?php echo $value['id']?>"><?php echo $value['syllabus_Name']?></option>
+                        <option value="<?php echo $value['id']?>" <?php if($value['id'] == $data['syllabusName']){echo 'selected = "selected"';}?>>
+							<?php echo $value['syllabus_Name']?>
+						</option>
                         <?php
                     }
                     ?>
@@ -36,46 +40,7 @@
             </div>
         </div>
 	</form>
-	<div class="row">
-<!--		<div class="col-md-6">-->
-<!--			<center><h2><b>Syllabus</b></h2></center>-->
-<!--			<table class="table table-striped">-->
-<!--				<thead>-->
-<!--					<tr>-->
-<!--						<th>Course No</th>-->
-<!--						<th>Course Title</th>-->
-<!--						<th>Credit</th>-->
-<!--						<th>Type</th>-->
-<!--					</tr>-->
-<!--				</thead>-->
-<!--					<tbody>-->
-<!--						<tr>-->
-<!--							<td>1101</td>-->
-<!--							<td>Structured Programming</td>-->
-<!--							<td>3.00</td>-->
-<!--							<td>Must</td>-->
-<!--						</tr>-->
-<!--						<tr>-->
-<!--							<td>1101</td>-->
-<!--							<td>Structured Programming</td>-->
-<!--							<td>3.00</td>-->
-<!--							<td>Must</td>-->
-<!--						</tr>-->
-<!--						<tr>-->
-<!--							<td>1101</td>-->
-<!--							<td>Structured Programming</td>-->
-<!--							<td>3.00</td>-->
-<!--							<td>Must</td>-->
-<!--						</tr>-->
-<!--						<tr>-->
-<!--							<td>1101</td>-->
-<!--							<td>Structured Programming</td>-->
-<!--							<td>3.00</td>-->
-<!--							<td>Must</td>-->
-<!--						</tr>-->
-<!--					</tbody>-->
-<!--				</table>-->
-<!--		</div>-->
+	<!-- <div class="row">
 		<div class="col-md-12">
 			<center><h2><b>Retake List</b></h2></center>
 			<table class="table table-striped">
@@ -101,58 +66,46 @@
 			</table>
 		</div>
 		<br><br>
-	</div>
+	</div> -->
 	<center><h2><b>Subject List</b></h2></center>
-    <form method="post", action="<?php echo BASE_URL?>/CourseRegistration/courseRegistration">
+    <form method="post", action="<?php echo BASE_URL?>/CourseRegistration/courseValidation">
+		<input type="text" name="yearTermId" value="<?php echo $data['term']?>" hidden="true">
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>Course No</th>
                 <th>Course Title</th>
                 <th>Type</th>
             </tr>
             </thead>
-            <?php
-            for ($i = 0; $i < 15; $i++) {
-                ?>
-                <tbody>
-                <tr>
-                    <td>
-                        <select class="form-control" id="singleselect" name="<?php echo "courseNumber".$i?>">
-                            <option value="0">select</option>
-                            <?php
-                            foreach ($data[2] as $key => $value){
-                                ?>
-                                <option value="<?php echo $value['id']?>"><?php echo $value['courseNumber']?></option>
-                                <?php
-                            }
-                            ?>
-                        </select>
-                    </td>
-                    <td>
-                        <select class="form-control" width="100%" id="singleselect" name="<?php echo "courseTitle".$i?>">
-                            <option value="0">select</option>
-                            <?php
-                            foreach ($data[2] as $key => $value){
-                                ?>
-                                <option value="<?php echo $value['id']?>"><?php echo $value['courseTitle']?></option>
-                                <?php
-                            }
-                            ?>
-                        </select>
-                    </td>
-                    <td>
-                        <select class="form-control" id="singleselect" name="<?php echo "CourseType".$i?>">
-                            <option value="1">Fresh</option>
-                            <option value="2">Retake</option>
-                            <option value="3">Re-retake</option>
-                        </select>
-                    </td>
-                </tr>
-                </tbody>
-                <?php
-            }
-            ?>
+			<tbody>
+				<?php
+	            for ($i = 0; $i < count($data[2]); $i++) {
+	                ?>
+	                <tr>
+	                    <td>
+	                        <select class="form-control" width="100%" name="<?php echo "courseTitle".$i?>">
+	                            <option value="0">select</option>
+	                            <?php
+	                            foreach ($data[2] as $key => $value){
+	                                ?>
+	                                <option value="<?php echo $value['id']?>"><?php echo $value['courseNumber']." ".$value['courseTitle']?></option>
+	                                <?php
+	                            }
+	                            ?>
+	                        </select>
+	                    </td>
+	                    <td>
+	                        <select class="form-control" name="<?php echo "CourseType".$i?>">
+	                            <option value="1">Fresh</option>
+	                            <option value="2">Retake</option>
+	                            <option value="3">Re-retake</option>
+	                        </select>
+	                    </td>
+	                </tr>
+	                <?php
+	            }
+	            ?>
+			</tbody>
         </table>
         <div class="form-group" >
             <center>

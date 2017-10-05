@@ -17,6 +17,15 @@ class LoadDropDown extends MainModel{
         return $this->db->select($sql);
     }
 
+    public function getAllYearTermById($id){
+        $sql = "SELECT * FROM year_term
+                WHERE id = :id";
+        $data = [
+            ':id' => $id
+        ];
+        return $this->db->select($sql, $data);
+    }
+
     public function getAllSession(){
         $sql = "SELECT * FROM session";
         return $this->db->select($sql);

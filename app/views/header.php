@@ -86,7 +86,7 @@
                                 <a class="nav-link" href="<?php echo BASE_DIR ?>/SyllabusPublic"><b>Syllabus</b></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo BASE_DIR ?>/Index/result"><b>My Result</b></a>
+                                <a class="nav-link" href="<?php echo BASE_DIR ?>/MyCourses"><b>My Courses</b></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo BASE_DIR ?>/CourseRegistration"><b>Course Registration</b></a>
@@ -167,6 +167,5 @@
             </div>
             </nav>
         </div>
-        
-        <div class="container">
 
+        <div class="container">
