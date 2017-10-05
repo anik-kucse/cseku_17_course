@@ -49,8 +49,24 @@ class SyllabusModel extends MainModel{
         );
 
         return $this->db->select($sql, $data);
-
     }
+
+    public function GetCourseByYearTermSyllabusName($term_Year_Id, $syllabus_Name_Id){
+        $sql = "SELECT course.id, course.courseNumber, 
+                course.courseTitle, course.credit 
+                FROM syllabus
+                INNER JOIN course ON course.id = syllabus.course_Id
+                WHERE syllabus.term_Year_Id = :term_Year_Id
+                AND syllabus.syllabus_Name_Id = :syllabus_Name_Id";
+
+        $data = array(
+            ':term_Year_Id' => $term_Year_Id,
+            ':syllabus_Name_Id' => $syllabus_Name_Id
+        );
+
+        return $this->db->select($sql, $data);
+    }
+
 
 
 }
