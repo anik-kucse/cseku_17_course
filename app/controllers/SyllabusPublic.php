@@ -61,6 +61,8 @@ class SyllabusPublic extends MainController {
             $tableData = $syllabusModel->getSubjectByTermNameGroup($yearTerm, $syllabus, $subjectType[$i]['subject_group_id']);
             array_push($data, $tableData);
         }
+        $data['term'] = $yearTerm;
+        $data['syllabusName'] = $syllabus;
         $this->load->view("syllabus", $data);
         $this->load->view("footer");
 
