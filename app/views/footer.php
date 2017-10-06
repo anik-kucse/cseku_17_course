@@ -13,5 +13,8 @@
 		<script src="<?php echo JS_DIR ?>/bootstrap.min.js"></script>
 		<script src="<?php echo JS_DIR ?>/ie10-viewport-bug-workaround.js"></script>
         <script src="<?php echo JS_DIR ?>/bootstrap-select.min.js"></script>
+        <script type="text/javascript">
+	  		document.getElementById('date').value = Date();
+		</script>
 	</body>
 </html>
