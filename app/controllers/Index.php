@@ -15,10 +15,10 @@ class Index extends MainController
         $this->home();
     }
 
-    public function home(){
-        $data = ['pageName' => 'home'];
+    public function approvedStudent(){
+        $data = ['pageName' => 'approvedStudent'];
         $this->load->view("header", $data);
-        $this->load->view("home");
+        $this->load->view("/admin/approvestudent");
         $this->load->view("footer");
     }
 }
