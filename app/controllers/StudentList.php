@@ -19,8 +19,16 @@ class StudentList extends MainController{
     public function main(){
         $pageName = ['pageName' => 'Student List'];
         $studentModel = $this->load->model('StudentModel');
+        $registerCourseModel = $this->load->model('RegisterCourseModel');
         $data['table'] = $studentModel->GetAllStudentDetail();
-
+        foreach ($data['table'] as $key => $value){
+            $course = $registerCourseModel->getCourseListByTermIdUserIdNotApprove($value['year_term_id'], $value['user_id']);
+            if($course != false){
+                $data['table'][$key]['have_course'] = '1';
+            }else{
+                $data['table'][$key]['have_course'] = '0';
+            }
+        }
 
         $this->load->view('header', $pageName);
         $this->load->view('admin/studentlist', $data);

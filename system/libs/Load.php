@@ -12,7 +12,7 @@ class Load
         if($data == true){
             extract($data);
         }
-         var_dump($data);
+//         var_dump($data);
         include 'app/views/'.$fileName.'.php';
     }
 

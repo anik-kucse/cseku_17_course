@@ -99,6 +99,9 @@
                                 <a class="nav-link" href="<?php echo BASE_DIR ?>/CourseRegistration"><b>Course Registration</b></a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="<?php echo BASE_DIR ?>/insertResult"><b>Insert Result</b></a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="<?php echo BASE_DIR ?>/AccountManage"><b>Acccount</b></a>
                             </li>
                         </ul>

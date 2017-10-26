@@ -34,7 +34,6 @@ class MyCourses extends MainController
         $this->load->view('header', $data);
 
         array_push($data, $termName);
-        // var_dump($registerCourseModel->getCourseListByTermIdUserId($term));
         array_push($data, $registerCourseModel->getCourseListByTermIdUserId($term));
         array_push($data, $registerCourseModel->getSumOfCreditByTermIdUserId($term));
         $data['term'] = $term;
@@ -43,5 +42,17 @@ class MyCourses extends MainController
 
         $this->load->view('footer');
     }
+
+    public function delete(){
+        $id = $_POST['id'];
+        $simpleModel = $this->load->model('SimpleModel');
+        $cond = "id = $id";
+        $res = $simpleModel->delete('course_registration', $cond);
+        if($res){
+            header('Location:'.BASE_URL.'/MyCourses');
+        }else{
+            var_dump($res);
+        }
+    }
 }
-?>
+

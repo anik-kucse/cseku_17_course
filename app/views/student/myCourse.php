@@ -64,6 +64,7 @@
             <th>Course Title</th>
             <th>Credit</th>
             <th>Status</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -82,6 +83,14 @@
                             echo "Approved";
                         }
                         ?>
+                    </td>
+                    <td>
+                        <?php if($value['is_approve'] == 0){?>
+                            <form action="<?php echo BASE_URL?>/myCourses/delete" method="post">
+                                <input type="hidden" name="id" value="<?php echo $value['id']?>">
+                                <input type="submit" name="delete" value="Delete" class="btn btn-outline-danger">
+                            </form>
+                        <?php }?>
                     </td>
                 </tr>
                 <?php

@@ -38,6 +38,16 @@ class CourseRegistration extends MainController{
         array_push($data, $courseList);
         $data['term'] = $term;
         $data['syllabusName'] = $syllName;
+        $simpleModel = $this->load->model('SimpleModel');
+        Session::init();
+        $userId = Session::get('id');
+        $cond = "user_id = $userId";
+        $res = $simpleModel->getAll('retake_list', $cond);
+        if($res){
+            $registerCourseModel = $this->load->model('RegisterCourseModel');
+
+            $data['retake'] = $registerCourseModel->getRetakeCoureByUserId($userId);
+        }
 
         $this->load->view('student/courseregistration',$data);
         $this->load->view('footer');

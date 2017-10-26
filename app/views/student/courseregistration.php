@@ -39,12 +39,9 @@
             </div>
 		</div>
 	</form>
-	<div class="form-group row">
-        <label class="col-md-3 col-form-label">Date</label>
-        <input class="col-md-6" id="date" name="date" readonly="readonly">
-    </div>
 
-	<!-- <div class="row">
+    <?php if(isset($data['retake'])){?>
+    <div class="row">
 		<div class="col-md-12">
 			<center><h2><b>Retake List</b></h2></center>
 			<table class="table table-striped">
@@ -56,21 +53,19 @@
 					</tr>
 				</thead>
 				<tbody>
+                <?php foreach ($data['retake'] as $key => $value){?>
 					<tr>
-						<td>1101</td>
-						<td>Structured Programming</td>
-						<td>3.00</td>
+						<td><?php echo $value['courseNumber'] ?></td>
+						<td><?php echo $value['courseTitle'] ?></td>
+						<td><?php echo $value['credit'] ?></td>
 					</tr>
-					<tr>
-						<td>1101</td>
-						<td>Structured Programming</td>
-						<td>3.00</td>
-					</tr>
+                <?php } ?>
 				</tbody>
 			</table>
 		</div>
 		<br><br>
-	</div> -->
+	</div>
+    <?php } ?>
 	<center><h2><b>Subject List</b></h2></center>
     <form method="post", action="<?php echo BASE_URL?>/CourseRegistration/courseValidation">
 		<input type="text" name="yearTermId" value="<?php echo $data['term']?>" hidden="true">

@@ -3,134 +3,107 @@
         <center><h1>Input Result</h1></center>
     </header>
     <br>
-    <form>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label class="form-control-label">Year-Term</label>
-                <select class="form-control">
-                  <option>1st-I</option>
-                  <option>1st-I</option>
-                  <option>1st-I</option>
-                </select>
+        <form id="ddl" method="POST" action="<?php echo BASE_URL?>/InsertResult/main/">
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label class="col-form-label">Year - Term</label>
+                    <div class="">
+                        <select class="form-control" id="ddlTerm" name="ddlYearTerm" onchange="select();">
+                            <?php
+                            foreach ($data[0] as $key => $value){
+                                ?>
+                                <option value="<?php echo $value['id']?>" <?php
+                                if (array_key_exists('term', $data)) {
+                                    if($value['id'] == $data['term']){
+                                        echo 'selected = "selected"';
+                                    }
+                                }
+                                ?>>
+                                    <?php echo $value['year']." year ".$value['term']." term" ?>
+                                </option>
+                                <?php
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
             </div>
-            <div class="form-group col-md-5">
-                <label class="form-control-label">Student ID</label>
-                <select class="form-control">
-                    <option>150213</option>
-                    <option>150231</option>
-                    <option>150218</option>
-                </select>
-            </div>
-            <div class="form-group col-md-1">
-                <label class="form-control-label" style="visibility:hidden">Invisible</label>
-                <button type="submit" class="btn btn-outline-customs">Select</button>
-            </div>
-        </div>
-    </form>
+        </form>
     <br>
-    <form method="post">
-        <div class="form-group row">
-            <label class="form-control-label col-md-3">Date</label>
-            <input type="date" id="date" name="date" class = "col-md-6" readonly="readonly">
-        </div>
-        <div class = "form-group row ">
-            <div class="col-md-12">
-                <center><h2><b>Update Result</b></h2></center>
-                <table class="table table-striped">
-                    <thead>
+    <div class = "form-group row ">
+        <div class="col-md-12">
+            <center><h2><b>Update Result</b></h2></center>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Course No</th>
+                    <th>Course Title</th>
+                    <th>Credit</th>
+                    <th>Type</th>
+                    <th>Grade</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($data['course'] as $key => $value){?>
                     <tr>
-                        <th>Course No</th>
-                        <th>Course Title</th>
-                        <th>Credit</th>
-                        <th>Type</th>
-                        <th>Grade</th>
+                        <td><?php echo $value['courseNumber']?></td>
+                        <td><?php echo $value['courseTitle']?></td>
+                        <td><?php echo $value['credit']?></td>
+                        <td><?php echo $value['type']?></td>
+                        <td>
+                            <form action="<?php echo BASE_URL?>/InsertResult/result" method="post">
+                                <input type="hidden" name="id" value="<?php echo $value['id']?>">
+                                <input type="hidden" name="term" value="<?php echo $data['term']?>">
+                                <select name="grade" onchange="getGrade(this);">
+                                    <option value="0" <?php if($value['result'] == '0'){ echo 'selected';}?>>Select</option>
+                                    <option value="4.00" <?php if($value['result'] == '4.00'){ echo 'selected';}?>>A+</option>
+                                    <option value="3.75" <?php if($value['result'] == '3.75'){ echo 'selected';}?>>A</option>
+                                    <option value="3.50" <?php if($value['result'] == '3.50'){ echo 'selected';}?>>A-</option>
+                                    <option value="3.25" <?php if($value['result'] == '3.25'){ echo 'selected';}?>>B+</option>
+                                    <option value="3.00" <?php if($value['result'] == '3.00'){ echo 'selected';}?>>B</option>
+                                    <option value="2.75" <?php if($value['result'] == '2.75'){ echo 'selected';}?>>B-</option>
+                                    <option value="2.50" <?php if($value['result'] == '2.50'){ echo 'selected';}?>>C+</option>
+                                    <option value="2.25" <?php if($value['result'] == '2.25'){ echo 'selected';}?>>C</option>
+                                    <option value="2.00" <?php if($value['result'] == '2.00'){ echo 'selected';}?>>D</option>
+                                    <option value="-1" <?php if($value['result'] == '-1'){ echo 'selected';}?>>F</option>
+                                </select>
+                            </form>
+                        </td>
                     </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>CSE 1102</td>
-                            <td>Structured programming</td>
-                            <td>3.0</td>
-                            <td>Freash</td>
-                            <td>
-                                <select>
-                                    <option>A+</option>
-                                    <option>A+</option>
-                                    <option>A+</option>
-                                    <option>A+</option>
-                                    <option>A+</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>CSE 1102</td>
-                            <td>Structured programming</td>
-                            <td>3.0</td>
-                            <td>Freash</td>
-                            <td>
-                                <select>
-                                    <option>A+</option>
-                                    <option>A+</option>
-                                    <option>A+</option>
-                                    <option>A+</option>
-                                    <option>A+</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>CSE 1102</td>
-                            <td>Structured programming</td>
-                            <td>3.0</td>
-                            <td>Freash</td>
-                            <td>
-                                <select>
-                                    <option>A+</option>
-                                    <option>A+</option>
-                                    <option>A+</option>
-                                    <option>A+</option>
-                                    <option>A+</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>CSE 1102</td>
-                            <td>Structured programming</td>
-                            <td>3.0</td>
-                            <td>Freash</td>
-                            <td>
-                                <select>
-                                    <option>A+</option>
-                                    <option>A+</option>
-                                    <option>A+</option>
-                                    <option>A+</option>
-                                    <option>A+</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <br>
-                <div class="form-group row">
-                    <label class = "col-md-2"></label>
-                    <label class="form-control-label col-md-3">Taken Credit</label>
-                    <input type="text" placeholder="value" class = "col-md-3" readonly="readonly">
-                </div>
-                <div class="form-group row">
-                    <label class = "col-md-2"></label>
-                    <label class="form-control-label col-md-3">Completed credit</label>
-                    <input type="text"  placeholder="value" class = "col-md-3" readonly="readonly">
-                </div>
-                <div class="form-group row">
-                    <label class = "col-md-2"></label>
-                    <label class="form-control-label col-md-3">TGPA</label>
-                    <input type="text" placeholder = "value" class = "col-md-3" readonly="readonly">
-                </div>
-                <div class="form-group" >
-                    <center>
-                        <button type="submit" class="btn btn-outline-customs ">Update</button>
-                    </center>
-                </div>
+                <?php } ?>
+                </tbody>
+            </table>
+            <br>
+            <div class="form-group row">
+                <label class = "col-md-2"></label>
+                <label class="form-control-label col-md-3">Taken Credit</label>
+                <input type="text" placeholder="value" class = "col-md-3" readonly="readonly">
+            </div>
+            <div class="form-group row">
+                <label class = "col-md-2"></label>
+                <label class="form-control-label col-md-3">Completed credit</label>
+                <input type="text"  placeholder="value" class = "col-md-3" readonly="readonly">
+            </div>
+            <div class="form-group row">
+                <label class = "col-md-2"></label>
+                <label class="form-control-label col-md-3">TGPA</label>
+                <input type="text" placeholder = "value" class = "col-md-3" readonly="readonly">
             </div>
         </div>
-    </form>
-</div> <!--content-->
+    </div>
+</div>
+
+<script>
+    function select() {
+        var ddl = document.getElementById('ddl');
+        var action = ddl.getAttribute('action');
+        var newAction = action + document.getElementById('ddlTerm').value;
+        ddl.setAttribute('action', newAction);
+        ddl.submit();
+    }
+
+    function getGrade(asd) {
+        var parent = asd.parentNode;
+        parent.submit();
+    }
+</script>

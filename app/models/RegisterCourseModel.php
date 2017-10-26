@@ -22,6 +22,7 @@ class RegisterCourseModel extends MainModel{
                 FROM course_registration
                 WHERE course_registration.user_id = :user_id
                 GROUP BY course_registration.term_year_id";
+        Session::init();
         $userId = Session::get('id');
         $data = array(
             ':user_id' => $userId
@@ -29,14 +30,59 @@ class RegisterCourseModel extends MainModel{
         return $this->db->select($sql, $data);
     }
 
-    public function getCourseListByTermIdUserId($termId)
+    public function getCourseListByTermIdUserId($termId, $userId = false)
     {
-        $sql = "SELECT course.courseNumber, course.courseTitle, course.credit, course_registration.is_approve
+        $sql = "SELECT course_registration.id, course.courseNumber, course.courseTitle, course.credit, course_registration.is_approve, course_registration.type 
                 FROM course_registration
                 INNER JOIN course on course.id = course_registration.course_id
                 WHERE course_registration.term_year_id = :term_year_id
                 AND course_registration.user_id = :user_id";
-        $userId = Session::get('id');
+
+        if($userId == false){
+            Session::init();
+            $userId = Session::get('id');
+        }
+        $data = array(
+            ':term_year_id' => $termId,
+            ':user_id' => $userId
+        );
+        return $this->db->select($sql, $data);
+    }
+
+    public function getCourseListByTermIdUserIdNotApprove($termId, $userId = false)
+    {
+        $sql = "SELECT course_registration.id, course.courseNumber, course.courseTitle, course.credit, course_registration.is_approve
+                FROM course_registration
+                INNER JOIN course on course.id = course_registration.course_id
+                WHERE course_registration.term_year_id = :term_year_id
+                AND course_registration.user_id = :user_id
+                AND course_registration.is_approve = '0' ";
+
+        if($userId == false){
+            Session::init();
+            $userId = Session::get('id');
+        }
+        $data = array(
+            ':term_year_id' => $termId,
+            ':user_id' => $userId
+        );
+        return $this->db->select($sql, $data);
+    }
+
+    public function getCourseListByTermIdUserIdApprove($termId, $userId = false)
+    {
+        $sql = "SELECT course_registration.id, course.courseNumber, course.courseTitle, course.credit, course_registration.is_approve,
+                course_registration.type, course_registration.result 
+                FROM course_registration
+                INNER JOIN course on course.id = course_registration.course_id
+                WHERE course_registration.term_year_id = :term_year_id
+                AND course_registration.user_id = :user_id
+                AND course_registration.is_approve = '1' ";
+
+        if($userId == false){
+            Session::init();
+            $userId = Session::get('id');
+        }
         $data = array(
             ':term_year_id' => $termId,
             ':user_id' => $userId
@@ -57,6 +103,14 @@ class RegisterCourseModel extends MainModel{
             ':user_id' => $userId
         );
         return $this->db->select($sql, $data);
+    }
+
+    public function getRetakeCoureByUserId($userId){
+        $sql = "SELECT retake_list.id, course.courseNumber, course.courseTitle, course.credit FROM course_registration
+                INNER JOIN course ON course.id = course_registration.course_id
+                INNER JOIN retake_list ON course.id = retake_list.course_id
+                WHERE retake_list.user_id = $userId";
+        return $this->db->select($sql);
     }
 
 }
