@@ -3,31 +3,6 @@
         <center><h1>Approve Student</h1></center>
     </header>
     <br>
-    <form>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label class="form-control-label">Year-Term</label>
-                <select class="form-control">
-                  <option>1st-I</option>
-                  <option>1st-I</option>
-                  <option>1st-I</option>
-                </select>
-            </div>
-            <div class="form-group col-md-5">
-                <label class="form-control-label">Student ID</label>
-                <select class="form-control">
-                    <option>150213</option>
-                    <option>150231</option>
-                    <option>150218</option>
-                </select>
-            </div>
-            <div class="form-group col-md-1">
-                <label class="form-control-label" style="visibility:hidden">Invisible</label>
-                <button type="submit" class="btn btn-outline-customs">Select</button>
-            </div>
-        </div>
-    </form>
-    <br>
     <form method="post">
         <div class = "form-group row ">
             <div class="col-sm-8">

@@ -12,8 +12,12 @@
         <!-- Latest compiled and minified CSS -->
         <link href="<?php echo CSS_DIR ?>/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
 
+        <link href="<?php echo CSS_DIR ?>/jquery.dataTables-1.10.16.min.css" rel="stylesheet" type="text/css" />
+
         <!--Customs css goes here-->
         <link href="<?php echo CSS_DIR ?>/main.css" rel="stylesheet" type="text/css" />
+
+        <script src="<?php echo JS_DIR ?>/jquery-3.2.1.min.js"></script>
 
         <!--Tab icon for the website-->
         <link rel="icon" href="">
@@ -65,7 +69,10 @@
                                 <a class="nav-link" href="<?php echo BASE_DIR ?>/SyllabusPublic"><b>Syllabus</b></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo BASE_DIR ?>/Index/accountmanage"><b>Acccount</b></a>
+                                <a class="nav-link" href="<?php echo BASE_DIR ?>/dashboard"><b>Dashboard</b></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo BASE_DIR ?>/studentlist"><b>Student List</b></a>
                             </li>
                         </ul>
                         <ul class="navbar-nav">
@@ -125,45 +132,6 @@
                 <?php
                 }
                 ?>
-<!--                <ul class="navbar-nav mr-auto">-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link" href="--><?php //echo BASE_DIR ?><!--"><b>Home</b></a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link" href="--><?php //echo BASE_DIR ?><!--/Index/syllabus"><b>Syllabus</b></a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link" href="--><?php //echo BASE_DIR ?><!--/Index/result"><b>My Result</b></a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link" href="--><?php //echo BASE_DIR ?><!--/Index/courseRegistration"><b>Course Registration</b></a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link" href="--><?php //echo BASE_DIR ?><!--/Index/newsyllabus"><b>add syllabus</b></a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link" href="--><?php //echo BASE_DIR ?><!--/Index/accountmanage"><b>Acccount</b></a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item dropdown">-->
-<!--                      <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>-->
-<!--                      <div class="dropdown-menu" aria-labelledby="dropdown01">-->
-<!--                        <a class="dropdown-item" href="#">Action</a>-->
-<!--                        <a class="dropdown-item" href="#">Another action</a>-->
-<!--                        <a class="dropdown-item" href="#">Something else here</a>-->
-<!--                      </div>-->
-<!--                    </li>-->
-<!--                </ul>-->
-<!--                <ul class="navbar-nav">-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link" href="--><?php //echo BASE_DIR ?><!--/Index/registration"><b>Registration</b></a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link" href="--><?php //echo BASE_DIR ?><!--/Login/index"><b>Log in</b></a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link" href="--><?php //echo BASE_DIR ?><!--/Login/logOut"><b>Log out</b></a>-->
-<!--                    </li>-->
-<!--                </ul>-->
             </div>
             </nav>
         </div>

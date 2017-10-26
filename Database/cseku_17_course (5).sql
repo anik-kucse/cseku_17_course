@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 05, 2017 at 09:07 AM
+-- Generation Time: Oct 26, 2017 at 04:32 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -212,6 +212,26 @@ INSERT INTO `course_registration` (`id`, `user_id`, `course_id`, `term_year_id`,
 (71, 27, 61, 5, 0, 'Fresh', 0),
 (72, 27, 62, 5, 0, 'Fresh', 0),
 (73, 27, 63, 5, 0, 'Fresh', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `open_registration`
+--
+
+CREATE TABLE `open_registration` (
+  `id` int(11) NOT NULL,
+  `is_open` tinyint(1) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `open_registration`
+--
+
+INSERT INTO `open_registration` (`id`, `is_open`, `start_date`, `end_date`) VALUES
+(1, 0, '0000-00-00', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -508,6 +528,12 @@ ALTER TABLE `course_registration`
   ADD KEY `term_year_id` (`term_year_id`);
 
 --
+-- Indexes for table `open_registration`
+--
+ALTER TABLE `open_registration`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `retake_list`
 --
 ALTER TABLE `retake_list`
@@ -578,6 +604,11 @@ ALTER TABLE `course`
 --
 ALTER TABLE `course_registration`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+--
+-- AUTO_INCREMENT for table `open_registration`
+--
+ALTER TABLE `open_registration`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `retake_list`
 --

@@ -3,13 +3,13 @@
 		<center><h1>My Courses</h1></center>
 		<br>
 	</header>
-    <form method="post" action="<?php echo BASE_URL?>/MyCourses/myCourses">
+    <form id="ddl   " method="post" action="<?php echo BASE_URL?>/MyCourses/myCourses">
         <div class="form-row">
             <div class="col-md-2">
                 <label class="form-control-label">Year-Term</label>
             </div>
-            <div class="form-group col-md-9">
-                <select class="form-control" name="ddlYearTerm">
+            <div class="form-group col-md-3">
+                <select class="form-control" name="ddlYearTerm" onchange="select();">
                     <?php
                     foreach ($data[0] as $key => $value){
                         ?>
@@ -22,11 +22,11 @@
                     ?>
                 </select>
             </div>
-            <div class="form-group col-md-1" >
-                <div class="">
-                    <button type="submit" class="btn btn-outline-customs ">Select</button>
-                </div>
-            </div>
+<!--            <div class="form-group col-md-1" >-->
+<!--                <div class="">-->
+<!--                    <button type="submit" class="btn btn-outline-customs ">Select</button>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
     </form>
 	<!-- <div class="row">
@@ -96,3 +96,10 @@
         </tbody>
     </table>
 </div>
+
+<script>
+    function select() {
+        var ddl = document.getElementById('ddl')
+        ddl.submit();
+    }
+</script>

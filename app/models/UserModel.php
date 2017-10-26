@@ -41,21 +41,25 @@ class UserModel extends MainModel{
 
     public function getUserName()
     {
+        Session::init();
         return Session::get('username');
     }
 
     public function getUserRole()
     {
+        Session::init();
         return Session::get('user_role');
     }
 
     public function getUserId()
     {
+        Session::init();
         return Session::get('id');
     }
 
     public function getPassword()
     {
+        Session::init();
         return Session::get('password');
     }
 }

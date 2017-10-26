@@ -41,7 +41,7 @@ class Login extends MainController
                 Session::set('user_role',  $loginData[0]['user_role']);
                 Session::set('password',  $loginData[0]['password']);
                 if($loginData[0]['user_role'] == 'Teacher'){
-                    header("Location: ".BASE_URL."/Index");
+                    header("Location: ".BASE_URL."/dashboard");
                 } else {
                     header("Location: ".BASE_URL."/AccountManage");
                 }

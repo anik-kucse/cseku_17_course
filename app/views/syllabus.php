@@ -1,11 +1,11 @@
 <div class="content">
     <br>
-    <form method="POST" action="<?php echo BASE_URL?>/SyllabusPublic/search">
+    <form id="ddl" method="POST" action="<?php echo BASE_URL?>/SyllabusPublic/search">
         <div class="form-group row">
             <div class="col-sm-6">
                 <label class="col-form-label">Year - Term</label>
                 <div class="">
-                    <select class="form-control" id="singleselect" name="ddlYearTerm">
+                    <select class="form-control" id="singleselect" name="ddlYearTerm" onchange="select();">
                         <?php
                         foreach ($data[0] as $key => $value){
                             ?>
@@ -24,24 +24,32 @@
                     </select>
                 </div>
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-6">
                 <label class="col-form-label">Syllabus</label>
                 <div class="">
-                    <select class="form-control" id="singleselect" name="ddlSyllabusName">
+                    <select class="form-control" id="singleselect" name="ddlSyllabusName" onchange="select();">
                         <?php
                         foreach ($data[1] as $key => $value){
                             ?>
-                            <option value="<?php echo $value['id']?>"><?php echo $value['syllabus_Name'] ?></option>
+                            <option value="<?php echo $value['id']?>" <?php
+                            if (array_key_exists('syllabusName', $data)) {
+                                if($value['id'] == $data['syllabusName']){
+                                    echo 'selected = "selected"';
+                                }
+                            }
+                            ?>>
+                                <?php echo $value['syllabus_Name'] ?>
+                            </option>
                             <?php
                         }
                         ?>
                     </select>
                 </div>
             </div>
-            <div class="col-sm-1">
-                <label class="col-form-label" style="visibility:hidden">Invisible</label>
-                <button type="submit" name="search" class="btn btn-outline-customs ">Search</button>
-            </div>
+<!--            <div class="col-sm-1">-->
+<!--                <label class="col-form-label" style="visibility:hidden">Invisible</label>-->
+<!--                <button type="submit" name="search" class="btn btn-outline-customs ">Search</button>-->
+<!--            </div>-->
         </div>
     </form>
     <br>
@@ -79,3 +87,10 @@
     ?>
     <br>
 </div>
+
+<script>
+    function select() {
+        var ddl = document.getElementById('ddl')
+        ddl.submit();
+    }
+</script>

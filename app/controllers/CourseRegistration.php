@@ -39,7 +39,7 @@ class CourseRegistration extends MainController{
         $data['term'] = $term;
         $data['syllabusName'] = $syllName;
 
-        $this->load->view('courseregistration',$data);
+        $this->load->view('student/courseregistration',$data);
         $this->load->view('footer');
     }
 
