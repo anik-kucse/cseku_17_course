@@ -1,12 +1,13 @@
 <div class="content">
     <header>
-        <center><h1>Result</h1></center>
+        <h1 class="cntr">Result</h1>
     </header>
     <br>
-    <label><?php echo 'Name: '.$data['student'][0]['first_name'].' '.$data['student'][0]['middle_name'].' '.$data['student'][0]['last_name']?></label>
-    <br>
-    <label><?php echo 'Student ID: '.$data['student'][0]['student_id']?></label>
-    <label></label>
+    <div class="form-group cntr">
+        <label class="col-form-label"><b><?php echo 'Name: '.$data['student'][0]['first_name'].' '.$data['student'][0]['middle_name'].' '.$data['student'][0]['last_name']?></b></label>
+        <br>
+        <label class="col-form-label"><b><?php echo 'Student ID: '.$data['student'][0]['student_id']?></b></label>
+    </div>
     <br>
     <?php foreach ($data['finale'] as $key => $value){?>
         <div class = "form-group row ">

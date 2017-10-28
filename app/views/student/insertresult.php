@@ -1,10 +1,11 @@
 <div class="content">
     <header>
-        <center><h1>Result</h1></center>
+        <h1 class="cntr">Result</h1>
     </header>
     <br>
     <form id="ddl" method="POST" action="<?php echo BASE_URL?>/InsertResult/main/">
-        <div class="form-group row">
+        <div class="form-group row cntr">
+            <div class="col-md-3"></div>
             <div class="col-sm-6">
                 <label class="col-form-label">Year - Term</label>
                 <div class="">
