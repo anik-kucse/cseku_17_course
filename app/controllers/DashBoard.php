@@ -9,6 +9,7 @@
 class DashBoard extends MainController{
     public function __construct(){
         parent::__construct();
+        Session::checkSession('Teacher');
     }
 
     public function index(){

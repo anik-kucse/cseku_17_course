@@ -16,18 +16,23 @@
         <h2>Open/Close course registration</h2>
         <label for="">Current status</label>
         <label class="text-danger"><?php if($data['is_open'][0]['is_open'] == 1){echo 'Opened';}else{echo 'Closed';}?></label>
+        <br>
         <?php if($data['is_open'][0]['is_open'] == '1'){?>
             <label for="" class="form-label">Start Date</label>
             <input type="text" disabled="disabled" class="form-control" value="<?php echo $data['is_open'][0]['start_date']?>">
+            <br>
             <label for="">End tDate</label>
             <input type="text" disabled="disabled" class="form-control" value="<?php echo $data['is_open'][0]['end_date']?>">
+            <br>
             <a href="<?php echo BASE_URL?>/dashboard/closeRegistration/<?php echo $data['is_open'][0]['id']?>" class="btn btn-outline-customs">Close Registration</a>
         <?php }else{?>
             <form action="<?php echo BASE_URL?>/dashboard/openRegistration" method="post">
                 <label for="">Start Date</label>
-                <input type="date" name="start_date" >
+                <input type="date" name="start_date" required="required" >
+                <br>
                 <label for="">End tDate</label>
-                <input type="date" name="end_date" >
+                <input type="date" name="end_date" required="required">
+                <br>
                 <input type="hidden" class="form-control" name="id" value="<?php echo $data['is_open'][0]['id']?>">
                 <input type="submit" class="btn btn-outline-customs" value="Open Registration">
             </form>

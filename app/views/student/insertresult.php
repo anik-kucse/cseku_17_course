@@ -1,38 +1,38 @@
-    <div class="content">
+<div class="content">
     <header>
-        <center><h1>Input Result</h1></center>
+        <center><h1>Result</h1></center>
     </header>
     <br>
-        <form id="ddl" method="POST" action="<?php echo BASE_URL?>/InsertResult/main/">
-            <div class="form-group row">
-                <div class="col-sm-6">
-                    <label class="col-form-label">Year - Term</label>
-                    <div class="">
-                        <select class="form-control" id="ddlTerm" name="ddlYearTerm" onchange="select();">
-                            <?php
-                            foreach ($data[0] as $key => $value){
-                                ?>
-                                <option value="<?php echo $value['id']?>" <?php
-                                if (array_key_exists('term', $data)) {
-                                    if($value['id'] == $data['term']){
-                                        echo 'selected = "selected"';
-                                    }
-                                }
-                                ?>>
-                                    <?php echo $value['year']." year ".$value['term']." term" ?>
-                                </option>
-                                <?php
-                            }
+    <form id="ddl" method="POST" action="<?php echo BASE_URL?>/InsertResult/main/">
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <label class="col-form-label">Year - Term</label>
+                <div class="">
+                    <select class="form-control" id="ddlTerm" name="ddlYearTerm" onchange="select();">
+                        <?php
+                        foreach ($data[0] as $key => $value){
                             ?>
-                        </select>
-                    </div>
+                            <option value="<?php echo $value['id']?>" <?php
+                            if (array_key_exists('term', $data)) {
+                                if($value['id'] == $data['term']){
+                                    echo 'selected = "selected"';
+                                }
+                            }
+                            ?>>
+                                <?php echo $value['year']." year ".$value['term']." term" ?>
+                            </option>
+                            <?php
+                        }
+                        ?>
+                    </select>
                 </div>
             </div>
-        </form>
+        </div>
+    </form>
     <br>
-    <div class = "form-group row ">
+    <?php if (!empty($data['course'])){?>
+        <div class = "form-group row ">
         <div class="col-md-12">
-            <center><h2><b>Update Result</b></h2></center>
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -78,20 +78,23 @@
             <div class="form-group row">
                 <label class = "col-md-2"></label>
                 <label class="form-control-label col-md-3">Taken Credit</label>
-                <input type="text" placeholder="value" class = "col-md-3" readonly="readonly">
+                <label class="form-control col-md-3"><?php echo $data['total_credit_taken'][0]['SUM(course.credit)']?></label>
             </div>
             <div class="form-group row">
                 <label class = "col-md-2"></label>
                 <label class="form-control-label col-md-3">Completed credit</label>
-                <input type="text"  placeholder="value" class = "col-md-3" readonly="readonly">
+                <label class="form-control col-md-3"><?php echo $data['credit_completed'][0]['SUM(course.credit)']?></label>
             </div>
             <div class="form-group row">
                 <label class = "col-md-2"></label>
                 <label class="form-control-label col-md-3">TGPA</label>
-                <input type="text" placeholder = "value" class = "col-md-3" readonly="readonly">
+                <label class="form-control col-md-3"><?php echo $data['result']?></label>
             </div>
         </div>
     </div>
+    <?php }else{?>
+        <span class="text-danger">NO approved Course found</span>
+    <?php }?>
 </div>
 
 <script>

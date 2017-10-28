@@ -9,6 +9,7 @@
 class InsertResult extends MainController{
     public function __construct(){
         parent::__construct();
+        Session::checkSession('Student');
     }
 
     public function index(){
@@ -33,6 +34,23 @@ class InsertResult extends MainController{
         $data['term'] = $term;
 
         $data['course'] = $registerCourseModel->getCourseListByTermIdUserIdApprove($term);
+
+        $data['total_credit_taken'] = $registerCourseModel->getSumOfCreditByTermIdUserId($term);
+        $data['credit_completed'] = $registerCourseModel->getSumOfCreditCompetedByTermIdUserId($term);
+        $sum = 0;
+        if(!empty($data['course'])){
+            foreach ($data['course'] as $key => $value){
+                if($value['result'] != '-1'){
+                    $sum = $sum + (int)$value['credit'] * (int)$value['result'];
+                }
+            }
+            if($data['credit_completed'][0]['SUM(course.credit)'] != null){
+                $data['result'] = $sum / (int)$data['credit_completed'][0]['SUM(course.credit)'];
+            }else{
+                $data['credit_completed'][0]['SUM(course.credit)'] = '0';
+                $data['result'] = '0';
+            }
+        }
 
         $this->load->view('header', $pageName);
         $this->load->view('student/insertresult',$data);
@@ -70,7 +88,7 @@ class InsertResult extends MainController{
             $cond = "course_id = $courseId";
             $isExist = $simpleModel->getAll('retake_list', $cond);
             if($isExist){
-                $cond="course_id = $id";
+                $cond="course_id = $courseId";
                 $delete = $simpleModel->delete('retake_list', $cond);
                 if($delete){
                     header('Location:'.BASE_URL.'/InsertResult/main/'.$term);

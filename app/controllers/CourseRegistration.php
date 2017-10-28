@@ -12,7 +12,7 @@
 class CourseRegistration extends MainController{
     public function __construct(){
         parent::__construct();
-        Session::checkSession();
+        Session::checkSession('Student');
     }
 
     public function Index(){
@@ -23,6 +23,8 @@ class CourseRegistration extends MainController{
         if(isset($_POST['ddlSyllabus'])){
             $syllName = $_POST['ddlSyllabus'];
         }
+
+        $simpleModel = $this->load->model('SimpleModel');
 
         Session::init();
         $userId = Session::get('id');
@@ -45,7 +47,7 @@ class CourseRegistration extends MainController{
         array_push($data, $courseList);
         $data['term'] = $term;
         $data['syllabusName'] = $syllName;
-        $simpleModel = $this->load->model('SimpleModel');
+
 
         $cond = "user_id = $userId";
         $res = $simpleModel->getAll('retake_list', $cond);
@@ -54,6 +56,8 @@ class CourseRegistration extends MainController{
 
             $data['retake'] = $registerCourseModel->getRetakeCoureByUserId($userId);
         }
+
+        $data['isOpen'] = $simpleModel->getAll('open_registration');
 
         $this->load->view('student/courseregistration',$data);
         $this->load->view('footer');

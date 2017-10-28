@@ -53,4 +53,11 @@ class SimpleModel extends MainModel {
         $sql = "SELECT MAX(id) FROM $table";
         return $this->db->select($sql);
     }
+
+    public function getOpenRegistrationCurrentDate(){
+        $sql =" SELECT * FROM open_registration 
+                WHERE open_registration.is_open = '1'
+                AND open_registration.end_date > CURDATE()";
+        return $this->db->select($sql);
+    }
 }

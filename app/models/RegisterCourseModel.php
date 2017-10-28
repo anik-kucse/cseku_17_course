@@ -16,14 +16,16 @@ class RegisterCourseModel extends MainModel{
         return $this->db->insert($table,$data);
     }
 
-    public function getTermListByUserId()
+    public function getTermListByUserId($userId = false)
     {
         $sql = "SELECT course_registration.term_year_id
                 FROM course_registration
                 WHERE course_registration.user_id = :user_id
                 GROUP BY course_registration.term_year_id";
-        Session::init();
-        $userId = Session::get('id');
+        if($userId == false){
+            Session::init();
+            $userId = Session::get('id');
+        }
         $data = array(
             ':user_id' => $userId
         );
@@ -90,20 +92,64 @@ class RegisterCourseModel extends MainModel{
         return $this->db->select($sql, $data);
     }
 
-    public function getSumOfCreditByTermIdUserId($termId)
+    public function getSumOfCreditByTermIdUserId($termId, $userId = false)
     {
         $sql = "SELECT SUM(course.credit)
                 FROM course_registration
                 INNER JOIN course on course.id = course_registration.course_id
                 WHERE course_registration.term_year_id = :term_year_id
                 AND course_registration.user_id = :user_id";
-        $userId = Session::get('id');
+        if($userId == false){
+            Session::init();
+            $userId = Session::get('id');
+        }
         $data = array(
             ':term_year_id' => $termId,
             ':user_id' => $userId
         );
         return $this->db->select($sql, $data);
     }
+
+    public function getSumOfCreditByTermIdUserIdApprove($termId, $userId = false)
+    {
+        $sql = "SELECT SUM(course.credit)
+                FROM course_registration
+                INNER JOIN course on course.id = course_registration.course_id
+                WHERE course_registration.term_year_id = :term_year_id
+                AND course_registration.user_id = :user_id
+                AND course_registration.is_approve = '1'";
+        if($userId == false){
+            Session::init();
+            $userId = Session::get('id');
+        }
+        $data = array(
+            ':term_year_id' => $termId,
+            ':user_id' => $userId
+        );
+        return $this->db->select($sql, $data);
+    }
+
+    public function getSumOfCreditCompetedByTermIdUserId($termId, $userId = false)
+    {
+        $sql = "SELECT SUM(course.credit)
+                FROM course_registration
+                INNER JOIN course on course.id = course_registration.course_id
+                WHERE course_registration.term_year_id = :term_year_id
+                AND course_registration.result != '-1'
+                AND course_registration.result != '0'
+                AND course_registration.user_id = :user_id";
+        if($userId == false){
+            Session::init();
+            $userId = Session::get('id');
+        }
+        $data = array(
+            ':term_year_id' => $termId,
+            ':user_id' => $userId
+        );
+        return $this->db->select($sql, $data);
+    }
+
+
 
     public function getRetakeCoureByUserId($userId){
         $sql = "SELECT course.id, course.courseNumber, course.courseTitle, course.credit

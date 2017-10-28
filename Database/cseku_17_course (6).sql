@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2017 at 03:40 AM
+-- Generation Time: Oct 28, 2017 at 01:02 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -164,16 +164,19 @@ CREATE TABLE `course_registration` (
 --
 
 INSERT INTO `course_registration` (`id`, `user_id`, `course_id`, `term_year_id`, `result`, `type`, `is_approve`) VALUES
-(26, 27, 1, 1, -1, 'Fresh', 1),
-(27, 27, 2, 1, -1, 'Fresh', 1),
-(30, 27, 5, 1, -1, 'Fresh', 1),
+(26, 27, 1, 1, 4, 'Fresh', 1),
+(27, 27, 2, 1, 4, 'Fresh', 1),
+(30, 27, 5, 1, 4, 'Fresh', 1),
 (76, 28, 1, 1, -1, 'Fresh', 1),
 (77, 28, 2, 1, -1, 'Fresh', 1),
 (78, 28, 3, 1, -1, 'Fresh', 1),
 (79, 28, 4, 1, -1, 'Fresh', 1),
-(81, 27, 11, 2, 0, 'Fresh', 0),
-(82, 27, 12, 2, 0, 'Fresh', 0),
-(83, 27, 1, 2, 0, 'Retake', 0);
+(81, 27, 11, 2, 4, 'Fresh', 1),
+(82, 27, 12, 2, 3, 'Fresh', 1),
+(84, 27, 21, 3, 0, 'Fresh', 1),
+(85, 27, 22, 3, 0, 'Fresh', 1),
+(86, 27, 23, 3, 0, 'Fresh', 1),
+(87, 27, 24, 3, 0, 'Fresh', 0);
 
 -- --------------------------------------------------------
 
@@ -193,7 +196,7 @@ CREATE TABLE `open_registration` (
 --
 
 INSERT INTO `open_registration` (`id`, `is_open`, `start_date`, `end_date`) VALUES
-(1, 0, '2017-10-19', '2017-10-28');
+(1, 1, '2017-10-28', '2017-10-31');
 
 -- --------------------------------------------------------
 
@@ -207,15 +210,6 @@ CREATE TABLE `retake_list` (
   `course_id` int(11) NOT NULL,
   `type` enum('Retake','Re-Retake') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `retake_list`
---
-
-INSERT INTO `retake_list` (`id`, `user_id`, `course_id`, `type`) VALUES
-(13, 27, 1, 'Retake'),
-(14, 27, 2, 'Retake'),
-(15, 27, 5, 'Retake');
 
 -- --------------------------------------------------------
 
@@ -264,7 +258,7 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`user_id`, `first_name`, `middle_name`, `last_name`, `student_id`, `email`, `mobile`, `year_term_id`, `session_Id`) VALUES
-(27, 'asd', 'asd', 'asd', '150231', 'nittya.ku.cse@gmail.com', '7', 2, 2),
+(27, 'J. M. ', 'Ashifiqur', 'Rahman', '150231', 'nittya.ku.cse@gmail.com', '7', 3, 2),
 (28, 'akib', 'shahariar', 'akib', '150232', 'akib@gamil.com', '0191430245', 1, 6);
 
 -- --------------------------------------------------------
@@ -576,7 +570,7 @@ ALTER TABLE `course`
 -- AUTO_INCREMENT for table `course_registration`
 --
 ALTER TABLE `course_registration`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 --
 -- AUTO_INCREMENT for table `open_registration`
 --
@@ -586,7 +580,7 @@ ALTER TABLE `open_registration`
 -- AUTO_INCREMENT for table `retake_list`
 --
 ALTER TABLE `retake_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `session`
 --

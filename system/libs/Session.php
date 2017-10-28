@@ -31,11 +31,13 @@ class Session
         }
     }
 
-    public static function checkSession(){
+    public static function checkSession($role){
         self::init();
         if(self::get('login') == false){
             self::destroy();
             header("Location: ". BASE_URL."/Login");
+        }elseif(self::get('user_role') != $role){
+            header("Location: ". BASE_URL);
         }
     }
 }

@@ -16,8 +16,23 @@ class Index extends MainController
     }
 
     public function home(){
-        $data = ['pageName' => 'home'];
-        $this->load->view("header", $data);
+
+
+        $pageName = ['pageName' => 'home'];
+        $this->load->view("header", $pageName);
+
+        $simpleModel = $this->load->model('SimpleModel');
+        $status = $simpleModel->getOpenRegistrationCurrentDate();
+        if(empty($status)){
+            $get = $simpleModel->getAll('open_registration');
+            $id = $get[0]['id'];
+            $cond = "id = $id";
+            $data = [
+                'is_open' => '0'
+            ];
+            $res = $simpleModel->update('open_registration', $data, $cond);
+        }
+
         $this->load->view("home");
         $this->load->view("footer");
     }

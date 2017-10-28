@@ -9,7 +9,7 @@
 class AccountManage extends MainController{
     public  function __construct(){
         parent::__construct();
-        Session::checkSession();
+        Session::checkSession('Student');
     }
 
     public function Index(){
@@ -31,6 +31,8 @@ class AccountManage extends MainController{
         if($msg != false){
             array_push($studentDetail, $msg);
         }
+        $simpleModel = $this->load->model('SimpleModel');
+        $studentDetail['isOpen'] = $simpleModel->getAll('open_registration');
         $this->load->view("student/accountmanage", $studentDetail);
 
         $this->load->view("footer");

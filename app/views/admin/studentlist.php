@@ -25,7 +25,7 @@
                 <td><?php echo $value['email']?></td>
                 <td><?php echo $value['year'].' year '.$value['term'].' term' ?></td>
                 <td><?php echo $value['sessionNumber']?></td>
-                <td><a href="#" class="btn btn-outline-customs">Show</a></td>
+                <td><a href="<?php echo BASE_URL?>/Result/main/<?php echo $value['user_id']?>" class="btn btn-outline-customs">Show</a></td>
                 <td>
                     <?php if($value['have_course'] == '1'){?>
                         <a href="<?php echo BASE_URL?>/approveStudent/main/<?php echo $value['user_id']?>" class="btn btn-outline-customs">Approve</a>

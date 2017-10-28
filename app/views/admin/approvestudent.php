@@ -3,7 +3,7 @@
         <center><h1>Approve Student</h1></center>
     </header>
     <br>
-    <label><?php echo 'Name:'.$data['student'][0]['first_name'].' '.$data['student'][0]['middle_name'].' '.$data['student'][0]['last_name']?></label>
+    <label><?php echo 'Name: '.$data['student'][0]['first_name'].' '.$data['student'][0]['middle_name'].' '.$data['student'][0]['last_name']?></label>
     <br>
     <label><?php echo 'Student ID: '.$data['student'][0]['student_id']?></label>
     <br>

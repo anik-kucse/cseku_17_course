@@ -9,7 +9,7 @@ class MyCourses extends MainController
     public function __construct()
     {
         parent::__construct();
-        Session::checkSession();
+        Session::checkSession('Student');
     }
 
     public function Index()

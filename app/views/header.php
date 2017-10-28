@@ -93,16 +93,16 @@
                                 <a class="nav-link" href="<?php echo BASE_DIR ?>/SyllabusPublic"><b>Syllabus</b></a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="<?php echo BASE_DIR ?>/AccountManage"><b>Account</b></a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="<?php echo BASE_DIR ?>/MyCourses"><b>My Courses</b></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo BASE_DIR ?>/CourseRegistration"><b>Course Registration</b></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo BASE_DIR ?>/insertResult"><b>Insert Result</b></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?php echo BASE_DIR ?>/AccountManage"><b>Acccount</b></a>
+                                <a class="nav-link" href="<?php echo BASE_DIR ?>/insertResult"><b>Result</b></a>
                             </li>
                         </ul>
                         <ul class="navbar-nav">

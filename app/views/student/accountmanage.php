@@ -15,6 +15,9 @@
         <?php
     }
     ?>
+    <?php if($data['isOpen'][0]['is_open'] == '1'){?>
+        <span class="text-danger">Course Registration open now. Starting Date : <?php echo $data['isOpen'][0]['start_date']?> Ending Date : <?php echo $data['isOpen'][0]['end_date']?></span>
+    <?php }?>
     <div class="form-group row">
         <label for="inputPassword" class="col-sm-4 col-form-label">User Name</label>
         <div class="col-sm-7">
