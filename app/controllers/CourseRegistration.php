@@ -19,11 +19,18 @@ class CourseRegistration extends MainController{
         self::courseRegistration();
     }
 
-    public function courseRegistration($term = 1, $syllName = 1){
-        if(isset($_POST['ddlYearTerm']) && isset($_POST['ddlSyllabus'])){
-            $term = $_POST['ddlYearTerm'];
+    public function courseRegistration($syllName = 1){
+        if(isset($_POST['ddlSyllabus'])){
             $syllName = $_POST['ddlSyllabus'];
         }
+
+        Session::init();
+        $userId = Session::get('id');
+
+        $studentModel = $this->load->model('StudentModel');
+        $studentDetail = $studentModel->GetStudentDetailByUserId($userId);
+
+        $term  = $studentDetail[0]['year_term_id'];
 
         $data = ['pageName' => 'Course Registration'];
         $this->load->view('header', $data);
@@ -39,8 +46,7 @@ class CourseRegistration extends MainController{
         $data['term'] = $term;
         $data['syllabusName'] = $syllName;
         $simpleModel = $this->load->model('SimpleModel');
-        Session::init();
-        $userId = Session::get('id');
+
         $cond = "user_id = $userId";
         $res = $simpleModel->getAll('retake_list', $cond);
         if($res){

@@ -31,7 +31,7 @@ class AccountManage extends MainController{
         if($msg != false){
             array_push($studentDetail, $msg);
         }
-        $this->load->view("accountmanage", $studentDetail);
+        $this->load->view("student/accountmanage", $studentDetail);
 
         $this->load->view("footer");
 

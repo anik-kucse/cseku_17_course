@@ -3,11 +3,11 @@
 		<center><h1>Register Course</h1></center>
 		<br>
 	</header>
-	<form method="post" action="<?php echo BASE_URL?>/CourseRegistration/courseRegistration">
+	<form id="ddl" method="post" action="<?php echo BASE_URL?>/CourseRegistration/courseRegistration">
 		<div class="form-row">
 		    <div class="form-group col-md-6">
-		      	<label class="form-control-label">Year-Term</label>
-		      	<select class="form-control" name="ddlYearTerm">
+		      	<label class="form-control-label">Current Year-Term</label>
+		      	<select class="form-control" name="ddlYearTerm" disabled="disabled">
                     <?php
                     foreach ($data[0] as $key => $value){
                         ?>
@@ -19,9 +19,9 @@
                     ?>
 				</select>
 		    </div>
-            <div class="form-group col-md-5">
+            <div class="form-group col-md-6">
                 <label class="form-control-label">Syllabus</label>
-                <select class="form-control" name="ddlSyllabus">
+                <select class="form-control" name="ddlSyllabus" onchange="select();">
                     <?php
                     foreach ($data[1] as $key => $value){
                         ?>
@@ -32,10 +32,6 @@
                     }
                     ?>
                 </select>
-            </div>
-            <div class="form-group col-md-1">
-                <label class="form-control-label" style="visibility:hidden">Invisible</label>
-            	<button type="submit" class="btn btn-outline-customs">Select</button>
             </div>
 		</div>
 	</form>
@@ -78,14 +74,21 @@
             </thead>
 			<tbody>
 				<?php
-	            for ($i = 0; $i < count($data[2]); $i++) {
+                $c = count($data[2]);
+                if($c>15){
+                    $c = 15;
+                }
+                if(isset($data['retake'])){
+                    $data['2'] = array_merge($data['retake'],$data['2']);
+                }
+	            for ($i = 0; $i < $c; $i++) {
 	                ?>
 	                <tr>
 	                    <td>
 	                        <select class="form-control" width="100%" name="<?php echo "courseTitle".$i?>">
 	                            <option value="0">select</option>
 	                            <?php
-	                            foreach ($data[2] as $key => $value){
+	                            foreach ($data['2'] as $key => $value){
 	                                ?>
 	                                <option value="<?php echo $value['id']?>"><?php echo $value['courseNumber']." ".$value['courseTitle']?></option>
 	                                <?php
@@ -114,4 +117,10 @@
     </form>
 
 </div>
+
+<script>
+    function select() {
+        document.getElementById('ddl').submit();
+    }
+</script>
 

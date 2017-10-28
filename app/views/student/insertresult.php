@@ -54,6 +54,7 @@
                             <form action="<?php echo BASE_URL?>/InsertResult/result" method="post">
                                 <input type="hidden" name="id" value="<?php echo $value['id']?>">
                                 <input type="hidden" name="term" value="<?php echo $data['term']?>">
+                                <input type="hidden" name="course_id" value="<?php echo $value['course_id']?>">
                                 <select name="grade" onchange="getGrade(this);">
                                     <option value="0" <?php if($value['result'] == '0'){ echo 'selected';}?>>Select</option>
                                     <option value="4.00" <?php if($value['result'] == '4.00'){ echo 'selected';}?>>A+</option>

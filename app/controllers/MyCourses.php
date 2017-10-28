@@ -21,6 +21,12 @@ class MyCourses extends MainController
     {
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $term = $_POST['ddlYearTerm'];
+        }else{
+            $studentModel = $this->load->model('StudentModel');
+            Session::init();
+            $userId = Session::get('id');
+            $student = $studentModel->GetStudentDetailByUserId($userId);
+            $term = $student[0]['year_term_id'];
         }
         $registerCourseModel = $this->load->model('RegisterCourseModel');
         $termList = $registerCourseModel->getTermListByUserId();
@@ -45,11 +51,12 @@ class MyCourses extends MainController
 
     public function delete(){
         $id = $_POST['id'];
+        $term = $_POST['term'];
         $simpleModel = $this->load->model('SimpleModel');
         $cond = "id = $id";
         $res = $simpleModel->delete('course_registration', $cond);
         if($res){
-            header('Location:'.BASE_URL.'/MyCourses');
+            header('Location:'.BASE_URL.'/MyCourses/myCourses/'.$term);
         }else{
             var_dump($res);
         }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2017 at 04:32 AM
+-- Generation Time: Oct 28, 2017 at 03:40 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -164,54 +164,16 @@ CREATE TABLE `course_registration` (
 --
 
 INSERT INTO `course_registration` (`id`, `user_id`, `course_id`, `term_year_id`, `result`, `type`, `is_approve`) VALUES
-(26, 27, 1, 1, 0, 'Fresh', 0),
-(27, 27, 2, 1, 0, 'Fresh', 0),
-(28, 27, 3, 1, 0, 'Fresh', 0),
-(29, 27, 4, 1, 0, 'Fresh', 0),
-(30, 27, 5, 1, 0, 'Fresh', 0),
-(31, 27, 6, 1, 0, 'Fresh', 0),
-(32, 27, 7, 1, 0, 'Fresh', 0),
-(33, 27, 8, 1, 0, 'Fresh', 0),
-(34, 27, 9, 1, 0, 'Fresh', 0),
-(35, 27, 10, 1, 0, 'Fresh', 0),
-(36, 27, 21, 3, 0, 'Fresh', 0),
-(37, 27, 22, 3, 0, 'Fresh', 0),
-(38, 27, 23, 3, 0, 'Fresh', 0),
-(39, 27, 24, 3, 0, 'Fresh', 0),
-(40, 27, 25, 3, 0, 'Fresh', 0),
-(41, 27, 26, 3, 0, 'Fresh', 0),
-(42, 27, 27, 3, 0, 'Fresh', 0),
-(43, 27, 28, 3, 0, 'Fresh', 0),
-(44, 27, 29, 3, 0, 'Fresh', 0),
-(45, 27, 11, 2, 0, 'Fresh', 0),
-(46, 27, 12, 2, 0, 'Fresh', 0),
-(47, 27, 13, 2, 0, 'Fresh', 0),
-(48, 27, 14, 2, 0, 'Fresh', 0),
-(49, 27, 15, 2, 0, 'Fresh', 0),
-(50, 27, 16, 2, 0, 'Fresh', 0),
-(51, 27, 17, 2, 0, 'Fresh', 0),
-(52, 27, 18, 2, 0, 'Fresh', 0),
-(53, 27, 19, 2, 0, 'Fresh', 0),
-(54, 27, 20, 2, 0, 'Fresh', 0),
-(55, 27, 30, 4, 0, 'Fresh', 0),
-(56, 27, 31, 4, 0, 'Fresh', 0),
-(57, 27, 32, 4, 0, 'Fresh', 0),
-(58, 27, 33, 4, 0, 'Fresh', 0),
-(59, 27, 34, 4, 0, 'Fresh', 0),
-(60, 27, 35, 4, 0, 'Fresh', 0),
-(61, 27, 36, 4, 0, 'Fresh', 0),
-(62, 27, 37, 4, 0, 'Fresh', 0),
-(63, 27, 38, 4, 0, 'Fresh', 0),
-(64, 27, 54, 5, 0, 'Fresh', 0),
-(65, 27, 55, 5, 0, 'Fresh', 0),
-(66, 27, 56, 5, 0, 'Fresh', 0),
-(67, 27, 57, 5, 0, 'Fresh', 0),
-(68, 27, 58, 5, 0, 'Fresh', 0),
-(69, 27, 59, 5, 0, 'Fresh', 0),
-(70, 27, 60, 5, 0, 'Fresh', 0),
-(71, 27, 61, 5, 0, 'Fresh', 0),
-(72, 27, 62, 5, 0, 'Fresh', 0),
-(73, 27, 63, 5, 0, 'Fresh', 0);
+(26, 27, 1, 1, -1, 'Fresh', 1),
+(27, 27, 2, 1, -1, 'Fresh', 1),
+(30, 27, 5, 1, -1, 'Fresh', 1),
+(76, 28, 1, 1, -1, 'Fresh', 1),
+(77, 28, 2, 1, -1, 'Fresh', 1),
+(78, 28, 3, 1, -1, 'Fresh', 1),
+(79, 28, 4, 1, -1, 'Fresh', 1),
+(81, 27, 11, 2, 0, 'Fresh', 0),
+(82, 27, 12, 2, 0, 'Fresh', 0),
+(83, 27, 1, 2, 0, 'Retake', 0);
 
 -- --------------------------------------------------------
 
@@ -231,7 +193,7 @@ CREATE TABLE `open_registration` (
 --
 
 INSERT INTO `open_registration` (`id`, `is_open`, `start_date`, `end_date`) VALUES
-(1, 0, '0000-00-00', '0000-00-00');
+(1, 0, '2017-10-19', '2017-10-28');
 
 -- --------------------------------------------------------
 
@@ -245,6 +207,15 @@ CREATE TABLE `retake_list` (
   `course_id` int(11) NOT NULL,
   `type` enum('Retake','Re-Retake') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `retake_list`
+--
+
+INSERT INTO `retake_list` (`id`, `user_id`, `course_id`, `type`) VALUES
+(13, 27, 1, 'Retake'),
+(14, 27, 2, 'Retake'),
+(15, 27, 5, 'Retake');
 
 -- --------------------------------------------------------
 
@@ -293,7 +264,8 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`user_id`, `first_name`, `middle_name`, `last_name`, `student_id`, `email`, `mobile`, `year_term_id`, `session_Id`) VALUES
-(27, 'asd', 'asd', 'asd', '150231', 'nittya.ku.cse@gmail.com', '7', 7, 2);
+(27, 'asd', 'asd', 'asd', '150231', 'nittya.ku.cse@gmail.com', '7', 2, 2),
+(28, 'akib', 'shahariar', 'akib', '150232', 'akib@gamil.com', '0191430245', 1, 6);
 
 -- --------------------------------------------------------
 
@@ -478,7 +450,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `user_name`, `password`, `user_role`) VALUES
 (11, 'admin', '202cb962ac59075b964b07152d234b70', 'Teacher'),
-(27, 'anik', '202cb962ac59075b964b07152d234b70', 'Student');
+(27, 'anik', '202cb962ac59075b964b07152d234b70', 'Student'),
+(28, 'akib', '202cb962ac59075b964b07152d234b70', 'Student');
 
 -- --------------------------------------------------------
 
@@ -603,7 +576,7 @@ ALTER TABLE `course`
 -- AUTO_INCREMENT for table `course_registration`
 --
 ALTER TABLE `course_registration`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 --
 -- AUTO_INCREMENT for table `open_registration`
 --
@@ -613,7 +586,7 @@ ALTER TABLE `open_registration`
 -- AUTO_INCREMENT for table `retake_list`
 --
 ALTER TABLE `retake_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `session`
 --
@@ -638,7 +611,7 @@ ALTER TABLE `syllabus_name`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `year_term`
 --

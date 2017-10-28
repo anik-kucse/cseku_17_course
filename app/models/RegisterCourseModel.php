@@ -71,7 +71,7 @@ class RegisterCourseModel extends MainModel{
 
     public function getCourseListByTermIdUserIdApprove($termId, $userId = false)
     {
-        $sql = "SELECT course_registration.id, course.courseNumber, course.courseTitle, course.credit, course_registration.is_approve,
+        $sql = "SELECT course_registration.id, course.id AS course_id, course.courseNumber, course.courseTitle, course.credit, course_registration.is_approve,
                 course_registration.type, course_registration.result 
                 FROM course_registration
                 INNER JOIN course on course.id = course_registration.course_id
@@ -106,9 +106,9 @@ class RegisterCourseModel extends MainModel{
     }
 
     public function getRetakeCoureByUserId($userId){
-        $sql = "SELECT retake_list.id, course.courseNumber, course.courseTitle, course.credit FROM course_registration
-                INNER JOIN course ON course.id = course_registration.course_id
-                INNER JOIN retake_list ON course.id = retake_list.course_id
+        $sql = "SELECT course.id, course.courseNumber, course.courseTitle, course.credit
+                FROM retake_list 
+                INNER JOIN course ON course.id = retake_list.course_id
                 WHERE retake_list.user_id = $userId";
         return $this->db->select($sql);
     }

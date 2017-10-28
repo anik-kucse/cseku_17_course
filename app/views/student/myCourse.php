@@ -3,13 +3,13 @@
 		<center><h1>My Courses</h1></center>
 		<br>
 	</header>
-    <form id="ddl   " method="post" action="<?php echo BASE_URL?>/MyCourses/myCourses">
+    <form id="ddl" method="post" action="<?php echo BASE_URL?>/MyCourses/myCourses">
         <div class="form-row">
             <div class="col-md-2">
                 <label class="form-control-label">Year-Term</label>
             </div>
             <div class="form-group col-md-3">
-                <select class="form-control" name="ddlYearTerm" onchange="select();">
+                <select class="form-control" name="ddlYearTerm" id="ddl_term" onchange="select();">
                     <?php
                     foreach ($data[0] as $key => $value){
                         ?>
@@ -22,40 +22,8 @@
                     ?>
                 </select>
             </div>
-<!--            <div class="form-group col-md-1" >-->
-<!--                <div class="">-->
-<!--                    <button type="submit" class="btn btn-outline-customs ">Select</button>-->
-<!--                </div>-->
-<!--            </div>-->
         </div>
     </form>
-	<!-- <div class="row">
-		<div class="col-md-12">
-			<center><h2><b>Retake List</b></h2></center>
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>Course No</th>
-						<th>Course Title</th>
-						<th>Credit</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>1101</td>
-						<td>Structured Programming</td>
-						<td>3.00</td>
-					</tr>
-					<tr>
-						<td>1101</td>
-						<td>Structured Programming</td>
-						<td>3.00</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<br><br>
-	</div> -->
 	<center><h2><b>Subject List</b></h2></center>
     <table class="table table-striped">
         <thead>
@@ -88,7 +56,8 @@
                         <?php if($value['is_approve'] == 0){?>
                             <form action="<?php echo BASE_URL?>/myCourses/delete" method="post">
                                 <input type="hidden" name="id" value="<?php echo $value['id']?>">
-                                <input type="submit" name="delete" value="Delete" class="btn btn-outline-danger">
+                                <input type="hidden" name="term" id="delete_term" value="">
+                                <input type="button" name="delete" value="Delete" onclick="delete_course(this);" class="btn btn-outline-danger">
                             </form>
                         <?php }?>
                     </td>
@@ -110,5 +79,13 @@
     function select() {
         var ddl = document.getElementById('ddl')
         ddl.submit();
+    }
+
+    function delete_course(asd) {
+        var parent_form = asd.parentNode;
+        var term = parent_form.childNodes[3];
+        var ddl_value = document.getElementById('ddl_term').value;
+        term.setAttribute('value', ddl_value);
+        parent_form.submit();
     }
 </script>

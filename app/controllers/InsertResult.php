@@ -24,7 +24,6 @@ class InsertResult extends MainController{
         }
         $registerCourseModel = $this->load->model('RegisterCourseModel');
         $termList = $registerCourseModel->getTermListByUserId();
-        var_dump($termList);
         $loadDDL = $this->load->model('LoadDropDown');
         $termName = [];
         foreach ($termList as $key => $value) {
@@ -44,6 +43,7 @@ class InsertResult extends MainController{
         $result = $_POST['grade'];
         $term = $_POST['term'];
         $id = $_POST['id'];
+        $courseId = $_POST['course_id'];
         $simpleModel = $this->load->model('SimpleModel');
         $data = [
             'result' => $result
@@ -56,7 +56,7 @@ class InsertResult extends MainController{
             $userId = Session::get('id');
             $data=[
                 'user_id' => $userId,
-                'course_id' => $id,
+                'course_id' => $courseId,
                 'type' => 'Retake'
             ];
 
@@ -67,7 +67,7 @@ class InsertResult extends MainController{
                 var_dump($retake);
             }
         }else{
-            $cond = "course_id = $id";
+            $cond = "course_id = $courseId";
             $isExist = $simpleModel->getAll('retake_list', $cond);
             if($isExist){
                 $cond="course_id = $id";
