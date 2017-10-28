@@ -1,21 +1,23 @@
 <div class="content">
     <header>
-        <center><h1>Approve Student</h1></center>
+        <h1 class="cntr">Approve Student</h1>
     </header>
     <br>
-    <label><?php echo 'Name: '.$data['student'][0]['first_name'].' '.$data['student'][0]['middle_name'].' '.$data['student'][0]['last_name']?></label>
-    <br>
-    <label><?php echo 'Student ID: '.$data['student'][0]['student_id']?></label>
-    <br>
-    <label><?php echo $data['student'][0]['year'].' year'?></label>
-    <br>
-    <label><?php echo $data['student'][0]['term'].' term'?></label>
-    <br>
-    <label><?php echo 'Session: '.$data['student'][0]['sessionNumber']?></label>
+    <div class="form-group cntr">
+        <label class="col-form-label"><?php echo 'Name: '.$data['student'][0]['first_name'].' '.$data['student'][0]['middle_name'].' '.$data['student'][0]['last_name']?></label>
+        <br>
+        <label class="col-form-label"><?php echo 'Student ID: '.$data['student'][0]['student_id']?></label>
+        <br>
+        <label class ="col-form-label"><?php echo $data['student'][0]['year'].' year'?></label>
+        <br>
+        <label class="col-form-label"><?php echo $data['student'][0]['term'].' term'?></label>
+        <br>
+        <label class="col-form-label"><?php echo 'Session: '.$data['student'][0]['sessionNumber']?></label>
+    </div>
     <br>
     <div class = "form-group row ">
         <div class="col-sm-8">
-            <center><h2><b>Requested Courses</b></h2></center>
+            <h2 class="cntr"><b>Requested Courses</b></h2>
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -47,7 +49,7 @@
         </div>
         <?php if(isset($data['retake'])){?>
         <div class="col-sm-4">
-            <center><h2><b>Retake list</b></h2></center>
+            <h2 class="cntr"><b>Retake list</b></h2>
             <table class="table table-striped">
                 <thead>
                 <tr>

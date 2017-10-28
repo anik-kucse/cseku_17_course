@@ -1,6 +1,6 @@
 <div class="content">
     <header>
-        <center><h1>Manage Your Account</h1></center>
+        <h1 class="cntr">Manage Your Account</h1>
     </header>
     <br>
     <?php

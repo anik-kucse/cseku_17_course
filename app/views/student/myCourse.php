@@ -1,6 +1,6 @@
 <div class="content">
 	<header>
-		<center><h1>My Courses</h1></center>
+		<h1 class="cntr">My Courses</h1>
 		<br>
 	</header>
     <form id="ddl" method="post" action="<?php echo BASE_URL?>/MyCourses/myCourses">
@@ -24,7 +24,7 @@
             </div>
         </div>
     </form>
-	<center><h2><b>Subject List</b></h2></center>
+	<h2 class="cntr"><b>Subject List</b></h2>
     <table class="table table-striped">
         <thead>
         <tr>

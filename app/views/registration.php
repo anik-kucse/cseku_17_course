@@ -1,8 +1,7 @@
 <div class="content">
-
 	<header>
 	<br>
-		<center><h3>Registare as A new Member</h3></center>
+		<h1 class="cntr">Registare as A new Member</h3>
 	<br>
 	</header>
 	<form role="form" method="POST" action="<?php echo BASE_URL?>/Register/registerNewMember">

@@ -1,4 +1,7 @@
 <div class="content">
+    <header>
+        <h1 class = "cntr">Syllabus</h1>
+    </header>
     <br>
     <form id="ddl" method="POST" action="<?php echo BASE_URL?>/SyllabusPublic/search">
         <div class="form-group row">
@@ -57,7 +60,7 @@
     for($i = 2; $i < 5; $i++){
         if(!empty($data[$i])){
             ?>
-            <center><h2><b><?php echo $data[$i][0]['group_rule']?></b></h2></center>
+            <h2 class="cntr"><b><?php echo $data[$i][0]['group_rule']?></b></h2>
             <table class="table table-striped ">
                 <thead>
                 <tr>
