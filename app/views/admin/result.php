@@ -75,19 +75,18 @@
                 </table>
                 <br>
                 <div class="form-group row">
-                    <label class = "col-md-2"></label>
-                    <label class="form-control-label col-md-3">Taken Credit</label>
-                    <label class="form-control col-md-3"><?php echo $value[2][0]['SUM(course.credit)']?></label>
-                </div>
-                <div class="form-group row">
-                    <label class = "col-md-2"></label>
-                    <label class="form-control-label col-md-3">Completed credit</label>
-                    <label class="form-control col-md-3"><?php echo $value[3][0]['SUM(course.credit)']?></label>
-                </div>
-                <div class="form-group row">
-                    <label class = "col-md-2"></label>
-                    <label class="form-control-label col-md-3">TGPA</label>
-                    <label class="form-control col-md-3"><?php echo $value[4]?></label>
+                    <div class="col-md-4">
+                        <label class="form-control-label col-md-6">Taken Credit</label>
+                        <label class="form-control col-md-6"><?php echo $value[2][0]['SUM(course.credit)']?></label>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-control-label col-md-6">Completed Credit</label>
+                        <label class="form-control col-md-6"><?php echo $value[3][0]['SUM(course.credit)']?></label>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-control-label col-md-4">TGPA</label>
+                        <label class="form-control col-md-6"><?php echo $value[4]?></label>
+                    </div>
                 </div>
             </div>
         </div>
