@@ -1,6 +1,6 @@
 <div class="content">
     <header>
-        <center><h1>My Result</h1></center>
+        <h1 class="cntr">My Result</h1>
         <br><br>
     </header>
     <form>

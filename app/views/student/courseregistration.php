@@ -1,6 +1,6 @@
 <div class="content">
 	<header>
-		<center><h1>Register Course</h1></center>
+		<h1 class="cntr">Register Course</h1>
 		<br>
 	</header>
     <?php if($data['isOpen'][0]['is_open'] == '1'){?>
@@ -40,7 +40,7 @@
         <?php if(isset($data['retake'])){?>
         <div class="row">
             <div class="col-md-12">
-                <center><h2><b>Retake List</b></h2></center>
+                <h2 class="cntr"><b>Retake List</b></h2>
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -63,7 +63,7 @@
             <br><br>
         </div>
     <?php } ?>
-        <center><h2><b>Subject List</b></h2></center>
+        <h2 class="cntr"><b>Subject List</b></h2>
         <form method="post", action="<?php echo BASE_URL?>/CourseRegistration/courseValidation">
         <input type="text" name="yearTermId" value="<?php echo $data['term']?>" hidden="true">
         <table class="table table-striped">
@@ -111,9 +111,7 @@
             </tbody>
         </table>
         <div class="form-group" >
-            <center>
-                <button type="submit" class="btn btn-outline-customs">Register</button>
-            </center>
+            <center><button type="submit" class="cnt btn btn-outline-customs">Register</button></center>
         </div>
     </form>
     <?php }else{?>

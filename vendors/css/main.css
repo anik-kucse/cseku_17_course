@@ -57,6 +57,9 @@ nav{
 .wrapper{
 	/*width: 100%;*/
 }
+.cntr{
+    text-align: center;
+}
 thead{
 	background: var(--header-color);
 	/*border-bottom: 3px solid #aaaabb;*/

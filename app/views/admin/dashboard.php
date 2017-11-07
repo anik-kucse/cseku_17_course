@@ -1,46 +1,72 @@
 <div class="content">
-    <div>
-        <h2>Account Manage</h2>
-        <div class="row">
+    <div class = "form-group">
+        <div class="cntr">
+        	<h2>Account Manage</h2>
+        </div>
+        <br>
+        <div class="form-group row cntr">
             <div class="col-12">
-                <label for="user_name" class="col-form-label">Username</label>
-                <label id="user_name" class="form-control"><?php echo $data['username']?></label>
+                <label for="user_name" class="col-form-label">User Name</label>
+                <label id="user_name" class="col-form-label"><b><?php echo $data['username']?></b></label>
             </div>
             <div class="col-12">
                 <label class="col-form-label">Do you want to change password? <a data-toggle="modal" href="#changePassword">Edit</a></label>
             </div>
+        </div> 
+    </div>
+    <br>
+    <div class="form-group">
+        <div class="cntr">
+        	<h2><b>Open/Close course registration</b></h2>
         </div>
-    </div>
-    <br>
-    <div>
-        <h2>Open/Close course registration</h2>
-        <label for="">Current status</label>
-        <label class="text-danger"><?php if($data['is_open'][0]['is_open'] == 1){echo 'Opened';}else{echo 'Closed';}?></label>
         <br>
-        <?php if($data['is_open'][0]['is_open'] == '1'){?>
-            <label for="" class="form-label">Start Date</label>
-            <input type="text" disabled="disabled" class="form-control" value="<?php echo $data['is_open'][0]['start_date']?>">
+        <div class="cntr">
+	        <label for="" style="font-size:25px" class="col-form-label"><b>Current status</b></label>
+	        <label class="text-danger col-form-label"><b><?php if($data['is_open'][0]['is_open'] == 1){echo 'Opened';}else{echo 'Closed';}?></b></label>
+        </div>
+        <br>
+        <div class="form-froup row cntr">
+        	<?php if($data['is_open'][0]['is_open'] == '1'){?>
+	        <div class="col-sm-6">
+	            <label for="" class="fcol-form-label">Start Date</label>
+	            <input type="text" disabled="disabled" class="form-control" value="<?php echo $data['is_open'][0]['start_date']?>">
+            </div>
+            <div class="col-sm-6">
+	            <label for="" class="col-form-label">End Date</label>
+	            <input type="text" disabled="disabled" class="form-control" value="<?php echo $data['is_open'][0]['end_date']?>">
+	        </div>
             <br>
-            <label for="">End tDate</label>
-            <input type="text" disabled="disabled" class="form-control" value="<?php echo $data['is_open'][0]['end_date']?>">
-            <br>
-            <a href="<?php echo BASE_URL?>/dashboard/closeRegistration/<?php echo $data['is_open'][0]['id']?>" class="btn btn-outline-customs">Close Registration</a>
-        <?php }else{?>
+        </div>
+        <br>
+        <a href="<?php echo BASE_URL?>/dashboard/closeRegistration/<?php echo $data['is_open'][0]['id']?>" class="btn btn-outline-customs">Close Registration</a>
+        	<?php }else{?>
             <form action="<?php echo BASE_URL?>/dashboard/openRegistration" method="post">
-                <label for="">Start Date</label>
-                <input type="date" name="start_date" required="required" >
-                <br>
-                <label for="">End tDate</label>
-                <input type="date" name="end_date" required="required">
-                <br>
-                <input type="hidden" class="form-control" name="id" value="<?php echo $data['is_open'][0]['id']?>">
-                <input type="submit" class="btn btn-outline-customs" value="Open Registration">
-            </form>
-        <?php }?>
+	            <div class="row">
+	                <div class="col-sm-5">
+		                <label for="" class="col-form-lebel">Start Date</label>
+		                <input type="date" name="start_date" class="col-12" required="required" >
+	                </div>
+	                <br>
+	                <div class="col-sm-5">
+		                <label for="" class="col-form-lebel">End Date</label>
+		                <input type="date" name="end_date" class="col-12" required="required">
+	                </div>
+	        
+	                <br>
+	                <div class="col-sm-2">
+		                <input type="hidden" class="form-control" name="id" value="<?php echo $data['is_open'][0]['id']?>">
+		                <label style="visibility:hidden" class="col-form-lebel">hidden</label>
+		                <input type="submit" class="btn btn-outline-customs" value="Open Registration">
+		            </div>
+	            </div>
+       		</form>
+        	<?php }?>
     </div>
     <br>
-    <div>
-        <h2>Session</h2>
+    <div class="form-froup">
+        <div class="cntr">
+        	<h2><b>Session</b></h2>
+        </div>
         <table class="table">
             <thead>
                 <tr>
@@ -53,7 +79,7 @@
                 <tr>
                     <form action="<?php echo BASE_URL?>/dashBoard/updateSession" method="post">
                         <td>
-                            <input type="text" value="<?php echo $value['sessionNumber']?>" name="session" id="session" disabled="disabled">
+                            <input class="form-control col-md-2"type="text" value="<?php echo $value['sessionNumber']?>" name="session" id="session" disabled="disabled">
                         </td>
                         <td>
                             <input type="hidden" value="<?php echo $value['id']?>" name="id">
@@ -66,9 +92,12 @@
             </tbody>
         </table>
         <form action="<?php echo BASE_URL?>/dashboard/addNewSession" method="post">
-            <label id="lbl_session" style="display: none">Session</label>
-            <input type="text" name="session_name" id="session_name" style="display: none">
-            <input type="submit" style="display: none" class="btn btn-outline-customs" id="add" value="Add">
+            <div class="form-group row">
+	            <label id="lbl_session" class="col-form-lebel col-md-2" style="display: none"><b>Session</b></label>
+	            <input type="text" class="col-md-6 form-control" name="session_name" id="session_name" style="display: none">
+	            <label class="col-md-1" style="visibility:hidden">hidden</label>
+	            <input type="submit" class="btn btn-outline-customs col-md-1" style="display: none"  id="add" value="Add">
+            </div>
         </form>
         <button class="btn btn-outline-customs" style="display: block" onclick="addNew();" id="add_new">Add New</button>
     </div>

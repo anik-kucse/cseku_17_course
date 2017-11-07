@@ -1,6 +1,6 @@
 <div class="content">
     <header>
-        <center><h1>Students</h1></center>
+        <h1 class="cntr">Students</h1>
     </header>
     <br>
     <table id="table" class="table">

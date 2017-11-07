@@ -1,10 +1,11 @@
 <div class="content">
     <header>
-        <center><h1>Result</h1></center>
+        <h1 class="cntr">Result</h1>
     </header>
     <br>
     <form id="ddl" method="POST" action="<?php echo BASE_URL?>/InsertResult/main/">
-        <div class="form-group row">
+        <div class="form-group row cntr">
+            <div class="col-md-3"></div>
             <div class="col-sm-6">
                 <label class="col-form-label">Year - Term</label>
                 <div class="">
@@ -76,19 +77,18 @@
             </table>
             <br>
             <div class="form-group row">
-                <label class = "col-md-2"></label>
-                <label class="form-control-label col-md-3">Taken Credit</label>
-                <label class="form-control col-md-3"><?php echo $data['total_credit_taken'][0]['SUM(course.credit)']?></label>
-            </div>
-            <div class="form-group row">
-                <label class = "col-md-2"></label>
-                <label class="form-control-label col-md-3">Completed credit</label>
-                <label class="form-control col-md-3"><?php echo $data['credit_completed'][0]['SUM(course.credit)']?></label>
-            </div>
-            <div class="form-group row">
-                <label class = "col-md-2"></label>
-                <label class="form-control-label col-md-3">TGPA</label>
-                <label class="form-control col-md-3"><?php echo $data['result']?></label>
+                <div class="col-md-4">
+                    <label class="form-control-label col-md-6">Taken Credit</label>
+                    <label class="form-control col-md-6"><?php echo $data['total_credit_taken'][0]['SUM(course.credit)']?></label>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-control-label col-md-6">Completed credit</label>
+                    <label class="form-control col-md-6"><?php echo $data['credit_completed'][0]['SUM(course.credit)']?></label>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-control-label col-md-6">TGPA</label>
+                    <label class="form-control col-md-6"><?php echo $data['result']?></label>
+                </div>
             </div>
         </div>
     </div>
